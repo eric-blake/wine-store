@@ -1,17 +1,22 @@
 {% extends "base.html" %}
 {% load static %}
 
+
+
+
 {% block content %}
-
-
-<header>
-    <div id="announcment-bar" class="row text-center">
-        <div class="col bg-primary text-white">
-            <h4 class="logo-font my-1">Free delivery on orders over €{{ free_delivery_threshold }}!</h4>
+<div class="container h-100">
+    <div class="row h-100">
+        <div class="col-7 col-md-6 my-auto">
+            <h1 class="display-4 logo-font text-black">
+                Winter Savings
+            </h1>
+            <div class="my-5">
+                <h4>
+                    <a href="" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a>
+                </h4>
+            </div>
         </div>
     </div>
-</header>
-
-
-
+</div>
 {% endblock %}
