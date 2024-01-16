@@ -2,6 +2,16 @@
 {% load static %}
 
 {% block content %}
-<h1 class="display-4 text-success">It works </h1>
+
+
+<header>
+    <div id="announcment-bar" class="row text-center">
+        <div class="col bg-primary text-white">
+            <h4 class="logo-font my-1">Free delivery on orders over €{{ free_delivery_threshold }}!</h4>
+        </div>
+    </div>
+</header>
+
+
 
 {% endblock %}
