@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-a@4$%_hx3)p+qj*2g2ztrf0i)z_)966h7!v$$**k9dg28cn7k*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-ericblake-winestore-5zbpe1qhijd.ws-eu107.gitpod.io','8000-eric-blake-wine-store-fq889z88k2.us2.codeanyapp.com']
+ALLOWED_HOSTS = ['8000-ericblake-winestore-gtifzvryti7.ws-eu107.gitpod.io','8000-eric-blake-wine-store-fq889z88k2.us2.codeanyapp.com']
 
 
 # Application definition
