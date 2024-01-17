@@ -6,5 +6,16 @@ html {
     background: url('/media/red-wine-board.jpg') no-repeat center center fixed;
     background-size: auto;
     height: 40vh;
-   background-color: rgba(240, 238, 238);
+    width: 100%;
+    background-color: rgba(240, 238, 238);
+    
+}
+
+
+/* Buttons */
+
+.shop-now-button {
+    background-color: blue !important;
+    min-width: 260px;
+
 }
