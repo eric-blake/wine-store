@@ -1,6 +1,5 @@
 from django.db import models
 from django_countries.fields import CountryField
-from django.conf import settings
 
 class Product(models.Model):
     title = models.CharField(max_length = 254)
@@ -9,7 +8,8 @@ class Product(models.Model):
     grape = models.CharField(max_length = 32)
     closure = models.CharField(max_length = 32)
     country = CountryField(blank_label='Country *', null=False, blank=False)
-    typeof = models.CharField(max_length = 32)
+    colour = models.ForeignKey('Colour', null=True, blank=True,
+                                 on_delete=models.SET_NULL)
     region = models.CharField(max_length = 32)
     style = models.CharField(max_length = 254)
     vintage = models.IntegerField(null=False, blank=False)
@@ -17,6 +17,22 @@ class Product(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     in_stock = models.BooleanField()
     stock_qty = models.IntegerField(null=False, blank=False)
+  
 
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name
+
+
+class Colour(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Colours'
+
+    name = models.CharField(max_length=254)
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_friendly_name(self):
+        return self.friendly_name
