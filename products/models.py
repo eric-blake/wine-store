@@ -6,7 +6,9 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     grape = models.CharField(max_length = 32)
-    closure = models.CharField(max_length = 32)
+    closure = models.ForeignKey('Closure', null=True, blank=True,
+                                 on_delete=models.SET_NULL)
+    # closure = models.CharField(max_length = 254, blank = True)
     country = CountryField(blank_label='Country *', null=False, blank=False)
     colour = models.ForeignKey('Colour', null=True, blank=True,
                                  on_delete=models.SET_NULL)
@@ -27,6 +29,17 @@ class Colour(models.Model):
 
     class Meta:
         verbose_name_plural = 'Colours'
+
+    name = models.CharField(max_length=254)
+
+    def __str__(self):
+        return self.name
+
+
+
+class Closure(models.Model):
+    class Meta:
+        verbose_name_plural = 'Closure'
 
     name = models.CharField(max_length=254)
 
