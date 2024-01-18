@@ -8,7 +8,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class ColourAdmin(admin.ModelAdmin):
-    list_display = ('friendly_name', 'name',)
+    list_display = ('name',)
 
 
 admin.site.register(Product, ProductAdmin)
