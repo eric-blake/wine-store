@@ -9,7 +9,6 @@ class Product(models.Model):
                                  on_delete=models.SET_NULL)
     closure = models.ForeignKey('Closure', null=True, blank=True,
                                  on_delete=models.SET_NULL)
-    # closure = models.CharField(max_length = 254, blank = True)
     country = CountryField(blank_label='Country *', null=False, blank=False)
     colour = models.ForeignKey('Colour', null=True, blank=True,
                                  on_delete=models.SET_NULL)
@@ -21,6 +20,7 @@ class Product(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     in_stock = models.BooleanField()
     stock_qty = models.IntegerField(null=False, blank=False)
+    created = models.DateTimeField(auto_now_add=True)
   
 
     def __str__(self):
