@@ -5,7 +5,8 @@ class Product(models.Model):
     title = models.CharField(max_length = 254)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    grape = models.CharField(max_length = 32)
+    grape = models.ForeignKey('Grape', null=True, blank=True,
+                                 on_delete=models.SET_NULL)
     closure = models.ForeignKey('Closure', null=True, blank=True,
                                  on_delete=models.SET_NULL)
     # closure = models.CharField(max_length = 254, blank = True)
@@ -13,7 +14,8 @@ class Product(models.Model):
     colour = models.ForeignKey('Colour', null=True, blank=True,
                                  on_delete=models.SET_NULL)
     region = models.CharField(max_length = 32)
-    style = models.CharField(max_length = 254)
+    style = models.ForeignKey('Style', null=True, blank=True,
+                                 on_delete=models.SET_NULL)
     vintage = models.IntegerField(null=False, blank=False)
     image = models.ImageField(null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
@@ -40,6 +42,26 @@ class Colour(models.Model):
 class Closure(models.Model):
     class Meta:
         verbose_name_plural = 'Closure'
+
+    name = models.CharField(max_length=254)
+
+    def __str__(self):
+        return self.name
+
+
+class Style(models.Model):
+    class Meta:
+        verbose_name_plural = 'Styles'
+
+    name = models.CharField(max_length=254)
+
+    def __str__(self):
+        return self.name
+
+
+class Grape(models.Model):
+    class Meta:
+        verbose_name_plural = 'Grapes'
 
     name = models.CharField(max_length=254)
 
