@@ -13,9 +13,9 @@
      
             <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">By Type</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Red Wine</a></li>
-                <li><a class="dropdown-item" href="#">White Wine</a></li>
-                <li><a class="dropdown-item" href="#">Rose</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?colour=Red">Red Wine</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?colour=White">White Wine</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?colour=Rose">Rose Wine</a></li>
               </ul>
             </li>
 

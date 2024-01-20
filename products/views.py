@@ -10,15 +10,21 @@ def all_products(request):
     query = None
     colours = None
 
-    if 'q' in request.GET:
-            query = request.GET['q']
-            if not query:
-                messages.error(request,
-                               ("You didn't enter any search criteria!"))
-                return redirect(reverse('products'))
+    if request.GET:
+        if 'colour' in request.GET:
+            colours = request.GET['colour'].split(',')
+            products = products.filter(colour__name__in=colours)
+            colours = Colour.objects.filter(name__in=colours)
 
-            queries = Q(title__icontains=query) | Q(description__icontains=query)
-            products = products.filter(queries)
+        if 'q' in request.GET:
+                query = request.GET['q']
+                if not query:
+                    messages.error(request,
+                                ("You didn't enter any search criteria!"))
+                    return redirect(reverse('products'))
+
+                queries = Q(title__icontains=query) | Q(description__icontains=query)
+                products = products.filter(queries)
         
     context = {
             'products': products,
