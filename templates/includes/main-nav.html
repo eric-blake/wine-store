@@ -10,8 +10,8 @@
             Buy Wines
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-     
-            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">By Type</a>
+
+            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle">By Type</a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{% url 'products' %}?colour=Red">Red Wine</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?colour=White">White Wine</a></li>
@@ -19,29 +19,27 @@
               </ul>
             </li>
 
-            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">By Country</a>
+            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle">By Country</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'products' %}?country=France">France</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?country=Italy">Italy</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?country=Chile">Chile</a></li>
+              </ul>
+            </li>
+
+              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle">By Style</a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">France</a></li>
-                  <li><a class="dropdown-item" href="#">Italy</a></li>
-                  <li><a class="dropdown-item" href="#">Chile</a></li>
-                  <li><a class="dropdown-item" href="#">New Zealand</a></li>
+                  <li><a class="dropdown-item" href="{% url 'products' %}?style=crisp">Crisp &amp; Zesty</a></li>
+                  <li><a class="dropdown-item" href="{% url 'products' %}?style=other">Ripe &amp; Rounded</a></li>
+                  <li><a class="dropdown-item" href="{% url 'products' %}?style=Smooth_Mellow">Smooth &amp; Mellow</a></li>
                 </ul>
               </li>
 
-
-              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">By Style</a>
+              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle">By Grape</a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Crisp & Zesty</a></li>
-                  <li><a class="dropdown-item" href="#">Ripe & Rounded</a></li>
-                  <li><a class="dropdown-item" href="#">Smooth & Mellow</a></li>
-                </ul>
-              </li>
-
-              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">By Grape</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Sauvignon Blanc</a></li>
-                  <li><a class="dropdown-item" href="#">Chardonnay</a></li>
-                  <li><a class="dropdown-item" href="#">Pinot Noir</a></li>
+                  <li><a class="dropdown-item" href="{% url 'products' %}?grape=Sauvignon">Sauvignon Blanc</a></li>
+                  <li><a class="dropdown-item" href="{% url 'products' %}?grape=Chardonnay">Chardonnay</a></li>
+                  <li><a class="dropdown-item" href="{% url 'products' %}?grape=pinot_noir">Pinot Noir</a></li>
                 </ul>
               </li>
 
