@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django_countries',
     'home',
     'products',
+    'bag',
 ]
 
 MIDDLEWARE = [
@@ -74,6 +75,8 @@ TEMPLATES = [
                 'django.template.context_processors.request', # required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'bag.contexts.bag_contents',
+                
             ],
         },
     },
