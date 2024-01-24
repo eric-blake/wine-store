@@ -3,7 +3,7 @@ html {
 }
 
 .row-shop-now {
-    background: url('/media/red-wine-board.jpg') no-repeat center center fixed;
+    /* background: url('/media/red-wine-board.jpg') no-repeat center center fixed; */
     background-size: auto;
     height: 40vh;
     width: 100%;
