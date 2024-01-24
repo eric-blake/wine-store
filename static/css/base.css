@@ -46,3 +46,10 @@ html {
     margin-left: .1rem;
     margin-right: .1rem;
   }
+
+  
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
