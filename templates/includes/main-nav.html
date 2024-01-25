@@ -2,7 +2,7 @@
       <!-- <a class="navbar-brand" href="#">Hidden brand</a> -->
       <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item active">
-          <a class="nav-link mr-5" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link mr-5" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
         </li>
       
      <li class="nav-item dropdown">
@@ -29,17 +29,17 @@
 
               <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle">By Style</a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{% url 'products' %}?style=crisp">Crisp &amp; Zesty</a></li>
-                  <li><a class="dropdown-item" href="{% url 'products' %}?style=other">Ripe &amp; Rounded</a></li>
+                  <li><a class="dropdown-item" href="{% url 'products' %}?style=Crisp_Zesty">Crisp &amp; Zesty</a></li>
+                  <li><a class="dropdown-item" href="{% url 'products' %}?style=Ripe_Rounded">Ripe &amp; Rounded</a></li>
                   <li><a class="dropdown-item" href="{% url 'products' %}?style=Smooth_Mellow">Smooth &amp; Mellow</a></li>
                 </ul>
               </li>
 
               <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle">By Grape</a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{% url 'products' %}?grape=Sauvignon">Sauvignon Blanc</a></li>
+                  <li><a class="dropdown-item" href="{% url 'products' %}?grape=Sauvignon_Blanc">Sauvignon Blanc</a></li>
                   <li><a class="dropdown-item" href="{% url 'products' %}?grape=Chardonnay">Chardonnay</a></li>
-                  <li><a class="dropdown-item" href="{% url 'products' %}?grape=pinot_noir">Pinot Noir</a></li>
+                  <li><a class="dropdown-item" href="{% url 'products' %}?grape=Pinot_Noir">Pinot Noir</a></li>
                 </ul>
               </li>
 
