@@ -21,6 +21,7 @@ class Product(models.Model):
     in_stock = models.BooleanField()
     stock_qty = models.IntegerField(null=False, blank=False)
     created = models.DateTimeField(auto_now_add=True)
+    sku = models.CharField(max_length=254, null=True, blank=True)
   
 
     def __str__(self):
