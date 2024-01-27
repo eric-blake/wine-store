@@ -3,9 +3,5 @@ from . import views
 from django.urls import path
 
 urlpatterns = [
-    path('apply/<item_id>/', views.coupon_apply, name='coupon_apply'),
+    path('apply_coupon/', views.apply_coupon, name='apply_coupon'),
     ]
-
-
-
-#   url(r'/^apply/$', views.coupon_apply, name='coupon_apply'),
