@@ -12,6 +12,7 @@ def bag_contents(request):
     product_count = 0
     bag = request.session.get('bag', {})
     discount= request.session.get('discount')
+    code = request.session.get('code')
     coupon_discount = 0
     apply_coupon_form = CouponForm()
 
@@ -29,7 +30,6 @@ def bag_contents(request):
     if discount:
         coupon_discount = total * Decimal(discount/100)
         total -= coupon_discount
-      
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
@@ -50,6 +50,8 @@ def bag_contents(request):
         'grand_total': grand_total,
         'coupon_discount': coupon_discount,
         'apply_coupon_form':apply_coupon_form,
+        'discount':discount,
+        'code': code,
     }
 
     return context
