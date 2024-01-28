@@ -6,6 +6,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 # Coupon code learnings from https://www.youtube.com/watch?v=_dSCGMJcoe4
 
+
 def apply_coupon(request):
     """Apply coupon code"""
     now = timezone.now()
@@ -24,3 +25,18 @@ def apply_coupon(request):
         except ObjectDoesNotExist:
             request.session['discount'] = None
     return redirect('view_bag')
+
+
+def remove_coupon(request):
+    """Remove coupon code"""
+    if 'discount' in request.session:
+        try: 
+            del request.session['discount']
+        except KeyError:
+              messages.error(request, 'Code not removed')
+
+    else:
+        messages.error(request, 'No code')
+    return redirect('view_bag')
+
+

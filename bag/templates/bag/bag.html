@@ -92,6 +92,7 @@
 
                                     {% if coupon_discount > 0 %}
                                     <p class="text-success">{{code}} Discount code applied. Discount: €{{ coupon_discount|floatformat:2 }}</p>
+                                    <a href="{% url 'remove_coupon' %}" class ="btn btn-secondary"> Remove coupon</a>
                                      {% endif %}
 
                                     <h6>Delivery: €{{ delivery|floatformat:2 }}</h6>
