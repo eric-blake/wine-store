@@ -121,3 +121,12 @@ html {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
+
+.cover{
+  object-fit: cover;
+  object-position: center;
+}
+.contain{
+  object-fit: contain;
+}
