@@ -17,13 +17,15 @@ def apply_coupon(request):
             if code.active and code.valid_from <=now and code.valid_to >=now:
                 discount = code.discount            
                 request.session['discount'] = discount
-            elif (code.active and code.valid_to > now ):
+            elif (code.active and code.valid_to < now ):
                  messages.error(request, 'This code has expired.')
             else: 
                 messages.error(request, 'Invalid code.')
                         
         except ObjectDoesNotExist:
             request.session['discount'] = None
+            messages.error(request, 'Code does not exist')
+
     return redirect('view_bag')
 
 
@@ -33,7 +35,7 @@ def remove_coupon(request):
         try: 
             del request.session['discount']
         except KeyError:
-              messages.error(request, 'Code not removed')
+              messages.error(request, 'This code not removed')
 
     else:
         messages.error(request, 'No code')
