@@ -29,19 +29,16 @@ def checkout(request):
 
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save(commit=False)
-            order_form.save()
-
+            order = order_form.save()
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
-                    if isinstance(item_data, int):
-                        order_line_item = OrderLineItem(
+                    order_line_item = OrderLineItem(
                             order=order,
                             product=product,
                             quantity=item_data,
                         )
-                        order_line_item.save()
+                    order_line_item.save()
 
 
                 except Product.DoesNotExist:
@@ -92,21 +89,22 @@ def checkout(request):
 
 
 
+
 def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
-    
+
     if 'bag' in request.session:
         del request.session['bag']
 
     template = 'checkout/checkout_success.html'
     context = {
-        'order': order
+        'order': order,
     }
-    
+
     return render(request, template, context)
 
 
