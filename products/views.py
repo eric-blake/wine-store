@@ -15,15 +15,14 @@ def all_products(request):
     colours = None
     styles = None
     grapes = None
-    country = None
+    countries = None
 
     if request.GET:
 
         if 'country' in request.GET:
             countries = request.GET['country'].split(',')
             products = products.filter(country__name__in=countries)
-            countries = country.objects.filter(name__in=countries)
-
+            countries = Product.objects.filter(name__in=countries)
 
 
         if 'colour' in request.GET:
@@ -78,7 +77,7 @@ def product_detail(request, product_id):
 
     return render(request, 'products/product_detail.html', context)
 
-
+@login_required
 def add_product(request):
     """ Add a product to the store """
 

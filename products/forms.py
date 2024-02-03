@@ -19,11 +19,3 @@ class ProductForm(forms.ModelForm):
         closures = Closure.objects.all()
         styles = Style.objects.all()
         grapes = Grape.objects.all()
-
-   
-
-
-
-
-
-    

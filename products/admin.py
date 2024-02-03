@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Product, Colour, Closure, Style, Grape
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('title','country','vintage','price','image',)
+    list_display = ('title','sku','country','vintage','price','image',)
 
     ordering = ('price',)
 

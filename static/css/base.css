@@ -3,7 +3,7 @@ html {
 }
 
 .row-shop-now {
-    /* background: url('/media/red-wine-board.jpg') no-repeat center center fixed; */
+    background: url('/media/red-wine-board.jpg') no-repeat center center fixed;
     background-size: auto;
     height: 40vh;
     width: 100%;
@@ -213,4 +213,10 @@ color: #17a2b8; /* text-info */
   background-color: #dc3545;
   border-color: #dc3545;
   border-radius: 0;
+}
+
+
+
+footer {
+  margin-top: auto;
 }
