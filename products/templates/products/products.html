@@ -67,6 +67,19 @@
                                 </div>
                             </div>
                         </div>
+
+                        <form action="{% url 'add_to_bag' product.id %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="quantity" value="1">
+                        {% if product.in_stock %}
+                        <input type="submit" class="btn btn-secondary rounded-0" value="Add to Bag">
+                        {% else %}
+                        <input type="text" class="btn btn-warning rounded-0" value="Out of Stock">
+                         {% endif %}
+                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    </form>
+
+
                         {% if request.user.is_superuser %}
                         <small class="ml-3">
                             <a href="{% URL 'edit_product' product.id % }">Edit</a>

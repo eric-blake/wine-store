@@ -20,11 +20,11 @@ def add_to_bag(request, item_id):
         if item_id in list(bag.keys()):
             bag_quantity = int(bag[item_id]) + quantity
             if bag_quantity <= product.stock_qty:
-                bag[item_id] += quantity
+                bag[item_id]= int(bag[item_id]) + quantity
                 messages.success(request, f'Updated {product.title} '
                                     f'quantity to {bag[item_id]}')  
             else:
-                messages.error(request, "Quantiy selected not available, select lower quantity")
+                messages.error(request, "Quantity selected not available, select lower quantity")
         else:
             bag[item_id] = quantity
             messages.success(request, f'Added {product.title} to your bag')
