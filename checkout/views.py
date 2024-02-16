@@ -56,15 +56,22 @@ def checkout(request):
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
-            order.original_bag =json.dump(bag)
+            order.original_bag =json.dumps(bag)
             order.save()
-            for item_id, item_data in bag.items():
+
+            for item_id, item_qty in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
+                    if product.stock_qty > 0:
+                        product.stock_qty -= item_qty
+                        product.save()
+                    else:
+                        messages.error(request, f'{product.title} out of stock')
+
                     order_line_item = OrderLineItem(
                             order=order,
                             product=product,
-                            quantity=item_data,
+                            quantity=item_qty,
                         )
                     order_line_item.save()
 
