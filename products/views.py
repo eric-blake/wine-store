@@ -62,6 +62,19 @@ def all_products(request):
             products = products.filter(grape__name__in=grapes)
             grapes = Grape.objects.filter(name__in=grapes)
 
+
+        if '6' in request.GET:
+            products = products.filter(description__icontains='6-bottle') 
+
+
+        if '12' in request.GET:
+            products = products.filter(description__icontains='12-bottle') 
+
+
+        if 'title' in request.GET:
+            products = products.filter(description__icontains='Champagne') 
+
+
         if 'q' in request.GET:
                 query = request.GET['q']
                 if not query:

@@ -51,14 +51,20 @@
         </li>
 
         <li class="nav-item mr-5">
-            <a class="nav-link" href="#">Champagne</a>
+            <a class="nav-link" href="{% url 'products' %}?title=champagne">Champagne</a>
           </li>
 
-          <li class="nav-item mr-5">
-            <a class="nav-link" href="#">Wine Gifts</a>
+          <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Wine Gifts
+          </a>
+          <div class="dropdown-menu border-0" aria-labelledby="wine-gifts-link">
+            <a href="{% url 'products' %}?6" class="dropdown-item">6 Bottle Cases</a>
+            <a href="{% url 'products' %}?12"class="dropdown-item">12 Bottle Cases</a>
+        </div>
           </li>
 
-      </ul>
+      </ul> 
     </div>
   <!-- </nav> -->
 
