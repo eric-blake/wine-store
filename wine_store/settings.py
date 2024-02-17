@@ -14,6 +14,8 @@ from pathlib import Path
 import os
 import env
 
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,12 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-a@4$%_hx3)p+qj*2g2ztrf0i)z_)966h7!v$$**k9dg28cn7k*'
+SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1:8000','127.0.0.1' ,'8000-ericblake-winestore-2ss0ypmz3do.ws-eu107.gitpod.io','8000-ericblake-winestore-gtifzvryti7.ws-eu107.gitpod.io', '8000-eric-blake-wine-store-fq889z88k2.us2.codeanyapp.com']
+ALLOWED_HOSTS = ['127.0.0.1:8000','127.0.0.1','https://wine-store-ci-bbef57464b33.herokuapp.com/']
 
 
 # Application definition
@@ -114,12 +116,17 @@ WSGI_APPLICATION = 'wine_store.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation
