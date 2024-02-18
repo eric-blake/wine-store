@@ -33,6 +33,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
+# DEBUG = True
+
 ALLOWED_HOSTS = ['127.0.0.1:8000','127.0.0.1','wine-store-ci-bbef57464b33.herokuapp.com','localhost']
 
 
@@ -213,8 +215,6 @@ if 'USE_AWS' in os.environ:
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
