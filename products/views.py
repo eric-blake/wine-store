@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import messages
 from django.db.models.functions import Lower
+from django.core.paginator import Paginator
 
 from .models import Product, Colour, Style, Grape
 from .forms import ProductForm
@@ -13,6 +14,7 @@ def all_products(request):
     """ A view to show all products"""
 
     products = Product.objects.all().order_by('-created')
+  
     query = None
     colours = None
     styles = None
@@ -84,6 +86,10 @@ def all_products(request):
 
                 queries = Q(title__icontains=query) | Q(description__icontains=query)
                 products = products.filter(queries)
+
+    paginator = Paginator(products, 3)
+    page_number = request.GET.get("page")
+    products = paginator.get_page(page_number)
 
     current_sorting = f'{sort}_{direction}'
         
