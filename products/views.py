@@ -6,8 +6,9 @@ from django.contrib import messages
 from django.db.models.functions import Lower
 from django.core.paginator import Paginator
 
-from .models import Product, Colour, Style, Grape
+from .models import Product, Colour, Style, Grape, Favourites
 from .forms import ProductForm
+from profiles.models import UserProfile
 
 
 def all_products(request):
@@ -187,3 +188,35 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Successfully deleted product')
     return redirect(reverse('products'))
+
+
+
+@login_required
+def favourites(request):
+    """A view to show favourite page"""
+
+    profile = UserProfile.objects.get(user=request.user)
+    favourites = Favourites.objects.filter(user=profile) 
+
+    template = 'products/favourites.html'
+    context = {
+        'favourites': favourites
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def add_to_favourites(request, product_id):
+    """Add product to favourites"""
+    product = get_object_or_404(Product, pk=product_id)
+    profile = UserProfile.objects.get(user=request.user)
+
+    if Favourites.objects.filter(user=profile, product=product):
+        messages.warning(request, f'{product.title} is already in your favourites')
+
+    else:
+        favourite_product = Favourites.objects.create(user=profile, product=product)
+        messages.success(request, f'{favourite_product.product.title} added to favourites')
+
+    return redirect(reverse('product_detail', args=[product_id]))
