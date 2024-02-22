@@ -212,11 +212,27 @@ def add_to_favourites(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     profile = UserProfile.objects.get(user=request.user)
 
-    if Favourites.objects.filter(user=profile, product=product):
-        messages.warning(request, f'{product.title} is already in your favourites')
+    if Favourites.objects.filter(user=profile, product=product).exists():
+        favourite_product = Favourites.objects.filter(user=profile, product=product) 
+        favourite_product.delete()
+        messages.info(request, f'{product.title} removed from favourites')
+        # Favourites.objects.remove(user=profile, product=product)
+        # messages.warning(request, f'{product.title} is already in your favourites')
 
     else:
         favourite_product = Favourites.objects.create(user=profile, product=product)
-        messages.success(request, f'{favourite_product.product.title} added to favourites')
+        messages.info(request, f'{favourite_product.product.title} added to favourites')
 
     return redirect(reverse('product_detail', args=[product_id]))
+
+
+# @login_required
+# def remove_from_favourites(request, product_id):
+#     """Remove product from favourites"""
+#     profile = UserProfile.objects.get(user=request.user)
+
+#     favourite_product = Favourites.objects.filter(user=profile) 
+#     favourites.delete()
+
+#     messages.success(request, f'{favourite_product.product.title} removed from favourites')
+#     return redirect(reverse('favourites'))
