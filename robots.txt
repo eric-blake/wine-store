@@ -1,0 +1,4 @@
+User-agent:*
+Disallow: /admin/
+Disallow: /accounts/
+Sitemap: https://wine-store-ci-bbef57464b33.herokuapp.com/sitemap.xml
