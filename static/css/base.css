@@ -5,10 +5,20 @@ html {
 .row-shop-now {
     background: url('/media/red-wine-board.jpg') no-repeat center center fixed;
     background-size: auto;
-    height: 40vh;
+    height: 50vh;
     width: 100%;
     background-color: rgba(240, 238, 238);
     
+}
+
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
 }
 
 
@@ -244,6 +254,8 @@ footer {
   cursor: pointer;
 }
 
+
+/* Footer */
 
 .footer {
   flex-shrink: 0;
