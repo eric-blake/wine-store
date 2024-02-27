@@ -14,7 +14,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center mt-3">
-            <h2 class="logo-font">Products</h2>
+            <h2>Products</h2>
             <hr class="w-50 mb-1">
         </div>
     </div>
@@ -23,21 +23,20 @@
             <div class="row mt-1 mb-2">
                 <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                     <div class="sort-select-wrapper w-50">
-                        <select id="sort-selector"
-                            class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
-                            <option value="reset" {% if current_sorting=='None_None' %}selected{% endif %}>Sort by...
-                            </option>
-                            <option value="title_asc" {% if current_sorting=='title_asc' %}selected{% endif %}>
+                        <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border
+                        -{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                            <option value="title_asc" {% if current_sorting == 'title_asc' %}selected{% endif %}>
                                 Alphabetically (A-Z)</option>
-                            <option value="title_desc" {% if current_sorting=='title_desc' %}selected{% endif %}>
+                            <option value="title_desc" {% if current_sorting == 'title_desc' %}selected{% endif %}> 
                                 Alphabetically (Z-A)</option>
-                            <option value="price_asc" {% if current_sorting=='price_asc' %}selected{% endif %}>Price
+                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
                                 (low to high)</option>
-                            <option value="price_desc" {% if current_sorting=='price_desc' %}selected{% endif %}>Price
+                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
                                 (high to low)</option>
-                            <option value="vintage_asc" {% if current_sorting=='vintage_asc' %}selected{% endif %}>Year
+                            <option value="vintage_asc" {% if current_sorting == 'vintage_asc' %}selected{% endif %}>Year
                                 (low to high)</option>
-                            <option value="vintage_desc" {% if current_sorting=='vintage_desc' %}selected{% endif %}>
+                            <option value="vintage_desc" {% if current_sorting == 'vintage_desc' %}selected{% endif %}>
                                 Year (high to low)</option>
                         </select>
                     </div>
@@ -47,8 +46,7 @@
                         {% if search_term or current_categories or current_sorting != 'None_None' %}
                         <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
                         {% endif %}
-                        {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term
-                            }}"</strong>{% endif %}
+                        {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term}}"</strong>{% endif %}
                     </p>
                 </div>
             </div>
@@ -67,12 +65,12 @@
                         </a>
                         {% endif %}
                         <div class="card-body pb-0">
-                            <p class="mb-0">{{ product.title }}</p>
+                            <p class="mb-0 text-center">{{ product.title }}</p>
                         </div>
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row">
                                 <div class="col">
-                                    <p class="lead mb-0 text-left font-weight-bold">€{{ product.price }}</p>
+                                    <p class="lead mb-0 text-left font-weight-bold text-center">€{{ product.price }}</p>
                                 </div>
                             </div>
                         </div>
@@ -80,14 +78,14 @@
                             {% csrf_token %}
                             <input type="hidden" name="quantity" value="1">
                             {% if product.in_stock %}
-                            <input type="submit" class="btn btn-secondary" value="Add to Bag">
+                            <input type="submit" class="add-to-bag btn rounded-0 text-uppercase py-1 text-white" value="Add to Bag">
                             {% else %}
                             <input type="text" class="btn btn-warning rounded-0" value="Out of Stock">
-                            {% endif %}
+                            {% endif %} 
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </form>
                         {% if request.user.is_superuser %}
-                        <small class="ml-3">
+                        <small class="text-center mt-2">
                             <a href="{% URL 'edit_product' product.id % }">Edit</a>
                             <a href="{% url 'delete_product' product.id %}">Delete </a>
                         </small>

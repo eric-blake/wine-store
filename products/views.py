@@ -88,7 +88,7 @@ def all_products(request):
                 queries = Q(title__icontains=query) | Q(description__icontains=query)
                 products = products.filter(queries)
 
-    paginator = Paginator(products, 3)
+    paginator = Paginator(products, 8)
     page_number = request.GET.get("page")
     products = paginator.get_page(page_number)
 

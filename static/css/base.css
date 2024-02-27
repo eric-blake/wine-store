@@ -1,9 +1,15 @@
 html {
     height: 100%;
+    color: #303C42;
+}
+
+.nav-link  {
+  text-decoration: none !important;
+  color:#303C42;
 }
 
 .row-shop-now {
-    background: url('/media/red-wine-board.jpg') no-repeat center center fixed;
+    background: url('/media/image-5.jpg') no-repeat center center fixed;
     background-size: auto;
     height: 50vh;
     width: 100%;
@@ -22,7 +28,21 @@ html {
 }
 
 
+.banner {
+  background-color: #791a3b;
+  font: white;
+}
+
+.logo-font {
+ color: #791a3b;
+}
+
+   
+  
+
+
 /* Buttons */
+
 
 .favourites {
   color:red;
@@ -32,12 +52,25 @@ html {
 }
 
 
-.shop-now-button {
-    background-color: blue !important;
+.shop-now-button  {
     min-width: 260px;
+    border: 2px solid #fff !important;
 
 }
 
+.add-to-bag {
+  border: 2px solid #fff !important;
+  width: 100%;
+  text-align: center;
+}
+
+.shop-now-button:hover { 
+  background-color: #791a3b !important;
+}
+
+.add-to-bag { 
+  background-color: #791a3b !important;
+}
 
 /* .dropdown-menu  { 
         width: 100rem !important;

@@ -7,7 +7,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center mt-3">
-            <h2 class="logo-font">Favourites</h2>
+            <h2>Favourites</h2>
             <hr class="w-50 mb-1">
         </div>
     </div>
@@ -43,7 +43,7 @@
                             {% csrf_token %}
                             <input type="hidden" name="quantity" value="1">
                             {% if item.product.in_stock %}
-                            <input type="submit" class="btn btn-secondary" value="Add to Bag">
+                            <input type="submit" class="btn add-to-bag" value="Add to Bag">
                             {% else %}
                             <input type="text" class="btn btn-warning rounded-0" value="Out of Stock">
                             {% endif %}
