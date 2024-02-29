@@ -6,8 +6,8 @@ from django.contrib import messages
 from django.db.models.functions import Lower
 from django.core.paginator import Paginator
 
-from .models import Product, Colour, Style, Grape, Favourites
-from .forms import ProductForm
+from .models import Product, Colour, Style, Grape, Favourites, Reviews
+from .forms import ProductForm, ReviewForm
 from profiles.models import UserProfile
 
 
@@ -110,10 +110,23 @@ def all_products(request):
 def product_detail(request, product_id):
     """ A view to show individual product details """
 
+    favourites = False
+    user_review = None
     product = get_object_or_404(Product, pk=product_id)
+    if request.user.is_authenticated:
+        profile = request.user.userprofile
+        user_review = Reviews.objects.all().filter(product=product_id, user=profile)
+        if Favourites.objects.filter(user=profile, product=product).exists():
+            favourites = True
+
+    reviews = Reviews.objects.all().filter(product=product_id).order_by('-created')
 
     context = {
         'product': product,
+        'favourites':favourites,
+        'user_review':user_review,
+        'reviews': reviews,
+        'review_form':ReviewForm()
     }
 
     return render(request, 'products/product_detail.html', context)
@@ -221,3 +234,29 @@ def add_to_favourites(request, product_id):
         messages.info(request, f'{favourite_product.product.title} added to favourites')
 
     return redirect(reverse('product_detail', args=[product_id]))
+
+
+@login_required
+def add_review(request, product_id):
+    """Add a product review"""
+    product = get_object_or_404(Product, pk = product_id)
+    user  = request.user.userprofile
+    if request.method == "POST":
+        review_form = ReviewForm(request.POST)
+
+        if review_form.is_valid():
+            review = review_form.save
+            review.product = product
+            review.user = user
+            review.save()
+            messages.success(request, 'Your review has been added')
+
+        else:
+            messages.error("Something went wrong, Please try again. ")
+
+    return(redirect(reverse('product_detail', args=[product.id])))
+
+
+
+
+

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product, Colour, Closure, Style, Grape
+from .models import Product, Colour, Closure, Style, Grape, Reviews
 from .widgets import CustomClearableFileInput
 
 class ProductForm(forms.ModelForm):
@@ -19,3 +19,10 @@ class ProductForm(forms.ModelForm):
         closures = Closure.objects.all()
         styles = Style.objects.all()
         grapes = Grape.objects.all()
+
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Reviews
+        fields = ['review']
+

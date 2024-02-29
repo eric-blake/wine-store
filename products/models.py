@@ -79,3 +79,18 @@ class Favourites(models.Model):
 
     def __str__(self):
         return self.product.title
+    
+
+class Reviews(models.Model):
+    """ Product review model"""
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product,on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+    review = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created']
+
+    def __str__(self):
+        return f"Review {self.review} by {self.user}"
