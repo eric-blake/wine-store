@@ -245,16 +245,16 @@ def add_review(request, product_id):
         review_form = ReviewForm(request.POST)
 
         if review_form.is_valid():
-            review = review_form.save
+            review = review_form.save(commit=False)
             review.product = product
             review.user = user
             review.save()
-            messages.success(request, 'Your review has been added')
+            messages.success(request, 'Your review has been added. ')
 
         else:
-            messages.error("Something went wrong, Please try again. ")
+            messages.error(request, 'Something went wrong, Please try again. ')
 
-    return(redirect(reverse('product_detail', args=[product.id])))
+    return redirect('product_detail', product_id)
 
 
 
