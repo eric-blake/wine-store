@@ -257,6 +257,8 @@ def add_review(request, product_id):
     return redirect('product_detail', product_id)
 
 
+
+@login_required
 def edit_review(request, product_id):
     """Edit a product review"""
     review = get_object_or_404(Reviews, pk = product_id )
@@ -269,7 +271,7 @@ def edit_review(request, product_id):
         if review_form.is_valid():
             review = review_form.save()
             messages.success(request, 'You review has been updated')
-            return redirect('product_detail', product_id)
+            return(redirect(reverse('product_detail', args=[product.id])))
         else:
             messages.error(request,'Something went wrong, Please try again. ')
 
@@ -281,6 +283,20 @@ def edit_review(request, product_id):
     }
 
     return render(request, template, context)
+
+
+
+@login_required
+def delete_review(request, product_id):
+    """Delete a product review"""
+    review = get_object_or_404(Reviews, pk = product_id)
+    review.delete()
+    messages.success(request, 'Successfully deleted review')
+    return redirect(reverse('products'))
+
+
+
+
 
 
 

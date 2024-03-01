@@ -41,12 +41,16 @@ html {
  color: #fff;
 }
 
-   
   
-
 
 /* Buttons */
 
+/* .edit-btn {
+  border: 2px solid #303C42 !important;
+  text-decoration: none !important;
+  color:#000;
+
+} */
 
 .favourites {
   color:red;
@@ -72,14 +76,15 @@ html {
   background-color: #91033c !important;
 }
 
-.add-to-bag, .add-to-bag-small, .button, .update-product, .review-btn { 
+.add-to-bag, .add-to-bag-small, .button, .update-item, .review-btn { 
   background-color: #91033c!important;
   color: #fff !important;
 }
 
-.keep-shopping, .cancel {
-  border: 2px solid #91033c!important;
-  color: #91033c
+.keep-shopping, .cancel-item, .edit-btn {
+  border: 1px solid #303C42 !important;
+  color: #91033c !important;
+  text-decoration: none !important;
 }
 
 

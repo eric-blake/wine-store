@@ -33,7 +33,7 @@
                     <p class="mt-3">{{ product.description }}</p>
                      
                     <!-- Add to favourites -->
-                    <div class="row">
+                    <div class="row my-2">
                         <div class="col">
                             {% if user.is_authenticated %}
                             <form class="d-inline" method="POST" action="{% url 'add_to_favourites' product.id %}" >
@@ -54,14 +54,11 @@
                         </div>
                     </div>
 
-
-
-
                        <!-- Edit and delete product -->
                     {% if request.user.is_superuser %}
-                    <small class="ml-3">
-                        <a href="{% url 'edit_product' product.id %}">Edit</a>
-                        <a href="{% url 'delete_product' product.id %}">Delete </a>
+                    <small>
+                        <a href="{% url 'edit_product' product.id %}" class="btn-sm mb-2 edit-btn">Edit</a>
+                        <a href="{% url 'delete_product' product.id %}" class="btn-sm mb-2 edit-btn">Delete </a>
                     </small>
                     {% endif %}
 
@@ -135,9 +132,10 @@
                 <h6 class="mt-0 text-muted">{{review.created |date}}</h6>
                      {{ review.review | linebreaks }} 
                         <!-- Edit and delete reviews -->
-                        {% if request.user.userprofile == review.user or request.user.is_superuser  %}
+                        {% if request.user.userprofile == review.user or request.user.is_superuser %}
                         <div class="edit_review">
-                            <a href="{% url 'edit_review' review.id %}" class="btn mb-2">Edit</a>
+                            <a href="{% url 'edit_review' review.id %}" class="btn-sm mb-2 edit-btn">Edit</a>
+                            <a href="{% url 'delete_review' review.id %}" class="btn-sm mb-2 edit-btn">Delete</a>
                         </div>
                         {% endif %}
                      <hr>
