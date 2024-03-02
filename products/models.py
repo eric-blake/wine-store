@@ -3,14 +3,15 @@ from django_countries.fields import CountryField
 from django.contrib.auth.models import User
 from profiles.models import UserProfile
 import uuid
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator, MinValueValidator
+from decimal import Decimal
 
 
 class Product(models.Model):
     """Class for all products"""
     title = models.CharField(max_length = 254)
     description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.DecimalField(max_digits=6, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))])
     grape = models.ForeignKey('Grape', null=True, blank=True,
                                  on_delete=models.SET_NULL)
     closure = models.ForeignKey('Closure', null=True, blank=True,
@@ -27,7 +28,7 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     in_stock = models.BooleanField()
-    stock_qty = models.IntegerField(null=False, blank=False)
+    stock_qty = models.PositiveIntegerField(null=False, blank=False)
     created = models.DateTimeField(auto_now_add=True)
     sku = models.CharField(max_length=32, unique=True, null=True,editable=False)
     
