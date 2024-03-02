@@ -111,7 +111,7 @@ class Favourites(models.Model):
         return self.product.title
     
 
-class Reviews(models.Model):
+class Review(models.Model):
     """ Product review model"""
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     product = models.ForeignKey(Product,on_delete=models.CASCADE)

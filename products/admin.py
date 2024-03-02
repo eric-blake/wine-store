@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Colour, Closure, Style, Grape, Reviews
+from .models import Product, Colour, Closure, Style, Grape, Review
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('title','sku','country','vintage','price','image',)
@@ -30,7 +30,7 @@ class GrapeeAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Product, ProductAdmin)
-admin.site.register(Reviews, ReviewAdmin)
+admin.site.register(Review, ReviewAdmin)
 admin.site.register(Colour, ColourAdmin)
 admin.site.register(Closure, ClosureAdmin)
 admin.site.register(Style, StyleAdmin)

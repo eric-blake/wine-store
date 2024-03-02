@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.db.models.functions import Lower
 from django.core.paginator import Paginator
 
-from .models import Product, Colour, Style, Grape, Favourites, Reviews
+from .models import Product, Colour, Style, Grape, Favourites, Review
 from .forms import ProductForm, ReviewForm
 from profiles.models import UserProfile
 
@@ -113,11 +113,11 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     if request.user.is_authenticated:
         profile = request.user.userprofile
-        user_review = Reviews.objects.all().filter(product=product_id, user=profile)
+        user_review = Review.objects.all().filter(product=product_id, user=profile)
         if Favourites.objects.filter(user=profile, product=product).exists():
             favourites = True
 
-    reviews = Reviews.objects.all().filter(product=product_id).order_by('-created')
+    reviews = Review.objects.all().filter(product=product_id).order_by('-created')
 
     context = {
         'product': product,
@@ -259,7 +259,7 @@ def add_review(request, product_id):
 @login_required
 def edit_review(request, product_id):
     """Edit a product review"""
-    review = get_object_or_404(Reviews, pk = product_id )
+    review = get_object_or_404(Review, pk = product_id )
     product = review.product
     review_form = ReviewForm(instance = review)
 
@@ -287,7 +287,7 @@ def edit_review(request, product_id):
 @login_required
 def delete_review(request, product_id):
     """Delete a product review"""
-    review = get_object_or_404(Reviews, pk = product_id)
+    review = get_object_or_404(Review, pk = product_id)
     review.delete()
     messages.success(request, 'Successfully deleted review')
     return redirect(reverse('products'))
