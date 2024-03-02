@@ -32,8 +32,6 @@ def all_products(request):
             if sortkey == 'title':
                 sortkey = 'lower_title'
                 products = products.annotate(lower_title=Lower('title'))
-            # if sortkey == 'vintage':
-            #     sortkey = 'vintage__name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':

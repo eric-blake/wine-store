@@ -105,3 +105,6 @@ The database model diagram was designed using Lucid Charts
 * Creating a coupon system - https://www.youtube.com/watch?v=_dSCGMJcoe4
 * Wine dataset from [Kaggle](https://kaggle.com/ "Kaggle"),
 * Pictures are from [Pixabay](https://pixabay.com/ "Pixabay"), and [Pexals](https://pexals.com/ "Pexals"),
+
+Stack overflow
+How to limit vintage field to maximuum of 4 digits https://stackoverflow.com/questions/2470760/charfield-with-fixed-length-how

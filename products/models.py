@@ -3,6 +3,8 @@ from django_countries.fields import CountryField
 from django.contrib.auth.models import User
 from profiles.models import UserProfile
 import uuid
+from django.core.validators import RegexValidator
+
 
 class Product(models.Model):
     """Class for all products"""
@@ -19,7 +21,9 @@ class Product(models.Model):
     region = models.CharField(max_length = 32)
     style = models.ForeignKey('Style', null=True, blank=True,
                                  on_delete=models.SET_NULL)
-    vintage = models.IntegerField(null=False, blank=False)
+    vintage = models.IntegerField(blank=False, 
+                                  validators=[RegexValidator(regex='^.{4}$', 
+                                   message='Enter year in YYYY format', code='nomatch')])
     image = models.ImageField(null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     in_stock = models.BooleanField()
