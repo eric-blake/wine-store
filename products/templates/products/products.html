@@ -52,11 +52,11 @@
             </div>
             <div class="row">
                 {% for product in products %}
-                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card h-100 border-0">
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 d-flex">
+                    <div class="card product-card h-100 border-0">
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            <img class="card-img-top img-fluid  " src="{{ product.image.url }}" alt="{{ product.name }}">
                         </a>
                         {% else %}
                         <a href="{% url 'product_detail' product.id %}">
@@ -78,16 +78,16 @@
                             {% csrf_token %}
                             <input type="hidden" name="quantity" value="1">
                             {% if product.in_stock %}
-                            <input type="submit" class="add-to-bag btn rounded-0 text-uppercase py-1 text-white" value="Add to Bag">
+                            <input type="submit" class="add-to-bag btn rounded-0 text-uppercase py-1 text-white mb-2" value="Add to Bag">
                             {% else %}
-                            <input type="text" class="btn btn-warning rounded-0" value="Out of Stock">
+                            <input type="text" class="btn btn-warning rounded-0 mb-2" value="Out of Stock">
                             {% endif %} 
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </form>
                         {% if request.user.is_superuser %}
-                        <small class="text-center mt-2">
-                            <a href="{% URL 'edit_product' product.id % }">Edit</a>
-                            <a href="{% url 'delete_product' product.id %}">Delete </a>
+                        <small class="text-center my-2">
+                            <a href="{% url 'edit_product' product.id %}" class="btn-sm mb-2 edit-btn">Edit</a>
+                            <a href="{% url 'delete_product' product.id %}" class="btn-sm mb-2 edit-btn">Delete </a>
                         </small>
                         {% endif %}
                     </div>
