@@ -77,6 +77,19 @@ Wine Store is a B2C e-commerce application that allows users to purchase wines
 I utilized a GitHub project and a Kanban board. [Kanban board](https://github.com/users/eric-blake/projects/14)
 As I start working on each issue I move it to the 'In progress' column.  When the coding for each issue has been completed, the issue is then moved to the 'done' column.
 
+
+### User Stories
+
+I used Github Issues to record the following user stories:
+
+All User Stories include:
+* Acceptance Criteria
+* Tasks
+* Labels (MoSCoW Priotarization)
+
+
+
+
 ### Structure & Logical Flow
 
 The database model diagram was designed using Lucid Charts
