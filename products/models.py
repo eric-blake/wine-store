@@ -2,8 +2,10 @@ from django.db import models
 from django_countries.fields import CountryField
 from django.contrib.auth.models import User
 from profiles.models import UserProfile
+import uuid
 
 class Product(models.Model):
+    """Class for all products"""
     title = models.CharField(max_length = 254)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
@@ -23,14 +25,33 @@ class Product(models.Model):
     in_stock = models.BooleanField()
     stock_qty = models.IntegerField(null=False, blank=False)
     created = models.DateTimeField(auto_now_add=True)
-    sku = models.CharField(max_length=254, null=True, blank=True)
-  
+    sku = models.CharField(max_length=32, unique=True, null=True,editable=False)
+    
 
     def __str__(self):
         return self.title
+    
+
+    def _generate_sku(self):
+        """
+        Generate a random, unique sku number using UUID
+        """
+        return uuid.uuid1().hex.upper()
+
+  
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the sku number
+        if it hasn't been set already.
+        """
+        if not self.sku:
+            self.sku = self._generate_sku()
+        super().save(*args, **kwargs)
+
 
 
 class Colour(models.Model):
+    """Product colour model"""
 
     class Meta:
         verbose_name_plural = 'Colours'
@@ -43,6 +64,7 @@ class Colour(models.Model):
 
 
 class Closure(models.Model):
+    """Product closure model"""
     class Meta:
         verbose_name_plural = 'Closure'
 
@@ -53,6 +75,7 @@ class Closure(models.Model):
 
 
 class Style(models.Model):
+    """product style model"""
     class Meta:
         verbose_name_plural = 'Styles'
 
@@ -63,6 +86,7 @@ class Style(models.Model):
 
 
 class Grape(models.Model):
+    """Product grape type model"""
     class Meta:
         verbose_name_plural = 'Grapes'
 
@@ -73,6 +97,7 @@ class Grape(models.Model):
     
 
 class Favourites(models.Model):
+    """Product favourites model"""
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)

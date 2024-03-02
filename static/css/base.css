@@ -81,7 +81,7 @@ html {
   color: #fff !important;
 }
 
-.keep-shopping, .cancel-item, .edit-btn {
+.keep-shopping, .cancel-btn, .edit-btn {
   border: 1px solid #303C42 !important;
   color: #91033c !important;
   text-decoration: none !important;
