@@ -13,13 +13,13 @@
 <div class="overlay"></div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col text-center mt-3">
+        <div class="col-12 col-lg-8 offset-lg-2 text-center mt-3">
             <h2>Products</h2>
-            <hr class="w-50 mb-1">
+            <hr class="mb-1">
         </div>
     </div>
     <div class="row">
-        <div class="product-container col-10 offset-1">
+        <div class="product-container col-12 col-lg-8 offset-lg-2 justify-content-center">
             <div class="row mt-1 mb-2">
                 <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                     <div class="sort-select-wrapper w-50">
@@ -78,9 +78,9 @@
                             {% csrf_token %}
                             <input type="hidden" name="quantity" value="1">
                             {% if product.in_stock %}
-                            <input type="submit" class="add-to-bag btn rounded-0 text-uppercase py-1 text-white mb-2" value="Add to Bag">
+                            <input type="submit" class="add-to-bag btn rounded-0 text-uppercase text-white mb-2" value="Add to Bag">
                             {% else %}
-                            <input type="text" class="btn btn-warning rounded-0 mb-2" value="Out of Stock">
+                            <input type="text" class="out-of-Stock-btn mb-3 text-center" value="Out of Stock" disabled>
                             {% endif %} 
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </form>
