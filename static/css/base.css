@@ -76,15 +76,21 @@ html {
   background-color: #91033c !important;
 }
 
-.add-to-bag, .add-to-bag-small, .button, .update-item, .review-btn { 
+.add-to-bag, .add-to-bag-small, .update-item, .review-btn, .allauth-btn-1 { 
   background-color: #91033c!important;
   color: #fff !important;
 }
 
-.keep-shopping, .cancel-btn, .edit-btn {
+.keep-shopping, .cancel-btn, .edit-btn, .allauth-btn-2 {
   border: 1px solid #303C42 !important;
   color: #91033c !important;
   text-decoration: none !important;
+}
+
+
+.btn-text {
+  text-decoration: none;
+  color:  #303C42 !important;
 }
 
 .out-of-Stock-btn {
@@ -232,12 +238,13 @@ display: inline-block;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: #000;
+  background-color: #91033c;
   border: 1px solid #000;
   padding: .375rem .75rem;
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0;
+
 
   /* standard bootstrap btn transitions */
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
@@ -246,14 +253,21 @@ display: inline-block;
 .allauth-form-inner-content button:hover,
 .allauth-form-inner-content input[type='submit']:hover {	
 color: #fff;
-  background-color: #222;
+  background-color: #303C42;
   border-color: #222;
+
 }
 
 .allauth-form-inner-content a {
-color: #17a2b8; /* text-info */
+color: #91033c; /* text-info */
+border-color: #222;
+text-decoration: none !important;
+
 }
 
+.allauth-form-inner-content a:hover {
+color: #222;
+}
 
 /* Product Form */
 
