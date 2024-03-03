@@ -41,65 +41,6 @@ html {
  color: #fff;
 }
 
-  
-
-/* Buttons */
-
-
-.navbar-toggler {
-  color: #fff !important;
-
-}
-
-
-.favourites {
-  color:red;
-  border:none;
-  background-color: #fff;
-
-}
-
-
-.shop-now-button  {
-    min-width: 260px;
-    border: 2px solid #fff !important;
-
-}
-
-.add-to-bag {
-  border: 2px solid #fff !important;
-  width: 100%;
-  text-align: center;
-}
-
-.shop-now-button:hover { 
-  background-color: #91033c !important;
-}
-
-.add-to-bag, .add-to-bag-small, .update-item, .review-btn, .allauth-btn-1 { 
-  background-color: #91033c!important;
-  color: #fff !important;
-}
-
-.keep-shopping, .cancel-btn, .edit-btn, .allauth-btn-2 {
-  border: 1px solid #303C42 !important;
-  color: #91033c !important;
-  text-decoration: none !important;
-}
-
-
-.btn-text {
-  text-decoration: none;
-  color:  #303C42 !important;
-}
-
-.out-of-Stock-btn {
-  color: #91033c !important;
-  text-decoration: none !important;
-  border:none;
-  background-color: #fff;
-  width: 100% !important;
-}
 
 
 /* Dropdown */
@@ -253,8 +194,8 @@ display: inline-block;
 .allauth-form-inner-content button:hover,
 .allauth-form-inner-content input[type='submit']:hover {	
 color: #fff;
-  background-color: #303C42;
-  border-color: #222;
+background-color: #303C42;
+border-color: #222;
 
 }
 
@@ -268,6 +209,78 @@ text-decoration: none !important;
 .allauth-form-inner-content a:hover {
 color: #222;
 }
+
+
+/* Buttons */
+
+.navbar-toggler {
+  color: #fff !important;
+
+}
+
+.favourites {
+  color:red;
+  border:none;
+  background-color: #fff;
+
+}
+
+.shop-now-button  {
+    min-width: 260px;
+    border: 2px solid #fff !important;
+
+}
+
+.shop-now-button:hover { 
+  background-color: #91033c !important;
+}
+
+.add-to-bag {
+  border: 2px solid #fff !important;
+  width: 100%;
+  text-align: center;
+  background-color: #91033c!important;
+}
+
+.add-to-bag:hover { 
+  transform: scale(1.03);
+}
+
+.add-to-bag-small, .update-item,
+.review-btn, .btn-red { 
+  background-color: #91033c!important;
+  color: #fff !important;
+}
+
+
+.keep-shopping, .cancel-btn, .edit-btn, .btn-outline-red {
+  border: 1px solid #303C42 !important;
+  color: #91033c !important;
+  text-decoration: none !important;
+}
+
+.btn-text {
+  text-decoration: none;
+  color:  #303C42 !important;
+}
+
+.out-of-Stock-btn {
+  color: #91033c !important;
+  text-decoration: none !important;
+  border:none;
+  background-color: #fff;
+  width: 100% !important;
+}
+
+.subscribe-btn {
+  background-color:#303C42 !important;
+}
+
+
+.subscribe-btn:hover {
+  transform: scale(1.03);
+}
+
 
 /* Product Form */
 

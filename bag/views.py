@@ -61,7 +61,7 @@ def adjust_bag(request, item_id):
                                     f'quantity to {bag[item_id]}')
                     
     else: 
-         messages.error(request, f'{product.title} out of stock' )
+         messages.error(request, 'Not enough stock to fulfill order. Reduce Qty.' )
          
 
     request.session['bag'] = bag
