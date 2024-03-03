@@ -16,7 +16,7 @@
     <div class="row text-center">
         <div class="col">
             <hr>
-            <h2 class="logo-font mb-4">Shopping Bag</h2>
+            <h2 class="mb-4 text-black">Shopping Bag</h2>
             <hr>
         </div>
     </div>
@@ -49,22 +49,22 @@
                             <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                                 {% csrf_token %}
                                 <div class="form-group">
-                                    <div class="input-group input-group-{{ product.id }}">
+                                    <div class="input-group input-group-{{ item.item_id  }}">
                                         <div class="input-group-prepend">
                                             <button
-                                                class="decrement-qty btn btn-black rounded-0 decrement-qty_{{ product.id }}"
-                                                data-item_id="{{ product.id }}">
+                                                class="decrement-qty btn btn-black rounded-0 decrement-qty_{{ item.item_id  }}"
+                                                data-item_id="{{ item.item_id }}">
                                                 <span class="icon">
                                                     <i class="fas fa-minus"></i>
                                                 </span>
                                             </button>
                                         </div>
-                                        <input class="form-control qty_input id_qty_{{ product.id }}" type="number"
-                                            name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}">
+                                        <input class="form-control qty_input id_qty_{{ item.item_id  }}" type="number"
+                                            name="quantity" value="{{item.quantity}}" min="1" max="99" data-item_id="{{ item.item_id  }}">
                                         <div class="input-group-append">
                                             <button
-                                                class="increment-qty btn btn-black rounded-0 increment-qty_{{ product.id }}"
-                                                data-item_id="{{ product.id }}">
+                                                class="increment-qty btn btn-black rounded-0 increment-qty_{{ item.item_id  }}"
+                                                data-item_id="{{ item.item_id  }}">
                                                 <span class="icon">
                                                     <i class="fas fa-plus"></i>
                                                 </span>
@@ -118,13 +118,13 @@
                     </tr>
                     <tr>
                         <td colspan="5" class="text-right">
-                            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                            <a href="{% url 'products' %}" class="btn keep-shopping rounded-0 btn-lg">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
-                            <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
+                            <a href="{% url 'checkout' %}" class="btn btn-red rounded-0 btn-lg">
                                 <span class="text-uppercase">Secure Checkout</span>
                                 <span class="icon">
                                     <i class="fas fa-lock"></i>
