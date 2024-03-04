@@ -337,7 +337,7 @@ footer {
 .footer {
   flex-shrink: 0;
   background-color: #303C42;
-  text-align: center;
+  text-align: center; 
 }
 
 .footer-container {
