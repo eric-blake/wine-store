@@ -403,7 +403,6 @@ footer {
 Mailchimp newsletter
   */
 
-
   #mc_embed_signup {
     background:#fff; 
     clear:left; 
@@ -412,3 +411,6 @@ Mailchimp newsletter
     }
   
 
+.social-media {
+  font-size: 1.5rem;
+}
