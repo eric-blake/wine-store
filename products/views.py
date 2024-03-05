@@ -38,10 +38,10 @@ def all_products(request):
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
 
-        if 'country' in request.GET:
-            countries = request.GET['country'].split(',')
-            products = products.filter(country__name__in=countries)
-            countries = Product.objects.filter(name__in=countries)
+        # if 'country' in request.GET:
+        #     countries = request.GET['country'].split(',')
+        #     products = products.filter(country__name__in=countries)
+        #     countries = Product.objects.filter(name__in=countries)
 
 
         if 'colour' in request.GET:
@@ -64,6 +64,20 @@ def all_products(request):
             grapes = Grape.objects.filter(name__in=grapes)
 
 
+        if 'Italy' in request.GET:
+            products = products.filter(country__icontains='IT')
+        if 'France' in request.GET:
+            products = products.filter(country__icontains='FR')    
+        if 'Australia' in request.GET:
+            products = products.filter(country__icontains='AU')    
+        if 'USA' in request.GET:
+            products = products.filter(country__icontains='US') 
+        if 'Chile' in request.GET:
+            products = products.filter(country__icontains='CL') 
+        if 'New Zeland' in request.GET:
+            products = products.filter(country__icontains='NZ') 
+            
+
         if '6' in request.GET:
             products = products.filter(description__icontains='6-bottle') 
 
@@ -73,7 +87,7 @@ def all_products(request):
 
 
         if 'title' in request.GET:
-            products = products.filter(description__icontains='Champagne') 
+            products = products.filter(title__icontains='Champagne') 
 
 
         if 'q' in request.GET:
