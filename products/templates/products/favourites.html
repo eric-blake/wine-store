@@ -12,12 +12,12 @@
         </div>
     </div>
     <div class="row">
-        <div class="product-container col-10 offset-1">
-            <div class="row">
+        <div class="product-container col-12 col-lg-8 offset-lg-2 justify-content-center">
+            <div class="row d-flex justify-content-center">
                 {% if favourites %}
                 {% for item in favourites %}
-                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card h-100 border-0">
+                <div class="col-8 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-3">
+                    <div class="card product-card h-100 border-0">
                         {% if item.product.image %}
                         <a href="{% url 'product_detail' item.product.id %}">
                             <img class="card-img-top img-fluid" src="{{ item.product.image.url }}"
@@ -43,9 +43,9 @@
                             {% csrf_token %}
                             <input type="hidden" name="quantity" value="1">
                             {% if item.product.in_stock %}
-                            <input type="submit" class="btn add-to-bag" value="Add to Bag">
+                            <input type="submit" class="add-to-bag btn rounded-0 text-uppercase text-white mb-2" value="Add to Bag">
                             {% else %}
-                            <input type="text" class="btn btn-warning rounded-0" value="Out of Stock">
+                            <input type="text" class="out-of-Stock-btn mb-3 text-center" value="Out of Stock">
                             {% endif %}
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </form>
