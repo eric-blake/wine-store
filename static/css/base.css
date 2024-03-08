@@ -222,11 +222,6 @@ color: #222;
 
 /* Buttons */
 
-.navbar-toggler {
-  color: #fff !important;
-
-}
-
 .favourites {
   color:red;
   border:none;
@@ -236,12 +231,12 @@ color: #222;
 
 .shop-now-button  {
     min-width: 260px;
+    background-color: #91033c !important;
     border: 2px solid #fff !important;
-
-}
+  }
 
 .shop-now-button:hover { 
-  background-color: #91033c !important;
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
 }
 
 .add-to-bag {
@@ -417,3 +412,5 @@ Mailchimp newsletter
 .social-media {
   font-size: 1.5rem;
 }
+
+
