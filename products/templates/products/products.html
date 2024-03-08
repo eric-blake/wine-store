@@ -20,6 +20,7 @@
     </div>
     <div class="row">
         <div class="product-container col-12 col-lg-8 offset-lg-2 justify-content-center">
+            <!-- Sort selector -->
             <div class="row mt-1 mb-2">
                 <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                     <div class="sort-select-wrapper w-50">
@@ -50,22 +51,25 @@
                     </p>
                 </div>
             </div>
-            <div class="row">
+            <!-- Sort selector end-->
+            <div class="row d-flex justify-content-center">
                 {% for product in products %}
-                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 d-flex">
+                <div class="col-8 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-3">
                     <div class="card product-card h-100 border-0">
+                        <!-- Card image -->
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid  " src="{{ product.image.url }}" alt="{{ product.name }}">
+                            <img class="card-img-top img-fluid  " src="{{ product.image.url }}" alt="{{ product.title }}">
                         </a>
                         {% else %}
                         <a href="{% url 'product_detail' product.id %}">
                             <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
-                                alt="{{ product.name }}">
+                                alt="{{ product.title }}">
                         </a>
                         {% endif %}
+                        <!-- Card body -->
                         <div class="card-body pb-0">
-                            <p class="mb-0 text-center">{{ product.title }}</p>
+                            <p class="mb-0 text-center card-title">{{ product.title }}</p>
                         </div>
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row">
