@@ -4,12 +4,11 @@
 <html lang="en">
 
 <head>
-    {% block meta %}
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name ="description" content="Welcome to the Wine Store">
-    <meta name = "keywords" content ="wines, red wine, white wine, rose, champagne">
+    <meta name = "keywords" content ="wines, red wine, shop, gifts, white wine, rose, champagne">
     <script src="https://kit.fontawesome.com/a2f0177c6e.js" crossorigin="anonymous"></script>
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
@@ -23,8 +22,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Karla&family=Merriweather:ital@1&display=swap');
     </style>
 
-    {% endblock %}
-
     {% block extra_meta %}
     {% endblock %}
 
@@ -34,9 +31,10 @@
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     {% endblock %}
 
-    {% block extra_css %}
-    {% endblock %}
-
+   {% block extra_css %}
+   <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+   {% endblock extra_css %}
+   
 
     {% block corejs %}
     <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
@@ -70,7 +68,7 @@
             <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-xl-left">
                     <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                        <h2 class="logo-font my-0"><img src="static\images\logo.png" alt="image of red wine stain effect" class="logo-image"><strong> Wine</strong> Store</h2>
+                        <h2 class="logo-font my-0"><img src="\static\images\logo.png" alt="image of red wine stain effect" class="logo-image"><strong> Wine</strong> Store</h2>
                     </a>
                 </div>
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">

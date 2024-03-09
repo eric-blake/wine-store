@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from django.views import generic, View
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import messages
@@ -38,17 +37,10 @@ def all_products(request):
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
 
-        # if 'country' in request.GET:
-        #     countries = request.GET['country'].split(',')
-        #     products = products.filter(country__name__in=countries)
-        #     countries = Product.objects.filter(name__in=countries)
-
-
         if 'colour' in request.GET:
             colours = request.GET['colour'].split(',')
             products = products.filter(colour__name__in=colours)
             colours = Colour.objects.filter(name__in=colours)
-
 
         if 'style' in request.GET:
             styles = request.GET['style'].split(',')
@@ -57,12 +49,10 @@ def all_products(request):
 
             print(styles)
 
-
         if 'grape' in request.GET:
             grapes = request.GET['grape'].split(',')
             products = products.filter(grape__name__in=grapes)
             grapes = Grape.objects.filter(name__in=grapes)
-
 
         if 'Italy' in request.GET:
             products = products.filter(country__icontains='IT')
@@ -77,18 +67,14 @@ def all_products(request):
         if 'New Zeland' in request.GET:
             products = products.filter(country__icontains='NZ') 
             
-
         if '6' in request.GET:
             products = products.filter(description__icontains='6-bottle') 
-
 
         if '12' in request.GET:
             products = products.filter(description__icontains='12-bottle') 
 
-
         if 'title' in request.GET:
             products = products.filter(title__icontains='Champagne') 
-
 
         if 'q' in request.GET:
                 query = request.GET['q']
@@ -117,8 +103,7 @@ def all_products(request):
 
     return render(request, 'products/products.html', context)
 
-
-   
+  
 def product_detail(request, product_id):
     """ A view to show individual product details """
 
@@ -142,6 +127,7 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'products/product_detail.html', context)
+
 
 @login_required
 def add_product(request):
@@ -170,6 +156,7 @@ def add_product(request):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def edit_product(request, product_id):
@@ -215,7 +202,6 @@ def delete_product(request, product_id):
     return redirect(reverse('products'))
 
 
-
 @login_required
 def favourites(request):
     """A view to show favourite page"""
@@ -236,6 +222,7 @@ def add_to_favourites(request, product_id):
     """Add product to favourites"""
     product = get_object_or_404(Product, pk=product_id)
     profile = UserProfile.objects.get(user=request.user)
+    redirect_url = request.POST.get('redirect_url')
 
     if Favourites.objects.filter(user=profile, product=product).exists():
         favourite_product = Favourites.objects.filter(user=profile, product=product) 
@@ -245,7 +232,7 @@ def add_to_favourites(request, product_id):
         favourite_product = Favourites.objects.create(user=profile, product=product)
         messages.info(request, f'{favourite_product.product.title} added to favourites')
 
-    return redirect(reverse('product_detail', args=[product_id]))
+    return redirect(redirect_url)
 
 
 @login_required

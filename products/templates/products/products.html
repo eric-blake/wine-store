@@ -68,7 +68,7 @@
                         </a>
                         {% endif %}
                         <!-- Card body -->
-                        <div class="card-body pb-0">
+                        <div class="card-body">
                             <p class="mb-0 text-center card-title">{{ product.title }}</p>
                         </div>
                         <div class="card-footer bg-white pt-0 border-0 text-left">
@@ -76,6 +76,36 @@
                                 <div class="col">
                                     <p class="lead mb-0 text-left font-weight-bold text-center">€{{ product.price }}</p>
                                 </div>
+                                <!-- Add to favourites -->
+                                <div class="col">
+                                {% if user.is_authenticated %}
+                                <form class="d-inline" method="POST" 
+                                action="{% url 'add_to_favourites' product.id %}">
+                                    {% csrf_token %}
+                                    {% if item.favourites %}
+                                    <button type="submit" class="favourites" name="favourites" 
+                                    value="submit" aria-label="remove from favourites"><i
+                                            class="fas fa-heart"></i></button>
+                                    {% else %}
+                                    <button type="submit" class="favourites" name="favourites" 
+                                    value="submit" aria-label="add to favourites"><i
+                                            class="far fa-heart"></i></button>
+                                    
+                                    {% endif %}
+                                    <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+                                </form>
+                                {% else %}
+                                <form class="d-inline" method="POST" 
+                                action="{% url 'account_login' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+                                <button type="submit" class="favourites" name="favourites" value="submit" 
+                                aria-label="add to favourites"><i
+                                class="far fa-heart"></i></button>
+                                </form>
+                                {% endif %}
+                            </div>
+  
                             </div>
                         </div>
                         <form action="{% url 'add_to_bag' product.id %}" method="POST">

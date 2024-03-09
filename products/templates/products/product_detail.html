@@ -42,17 +42,24 @@
                                 {% if favourites %}
                                 <button type="submit" class="favourites" name="favourites" 
                                 value="submit" aria-label="remove from favourites"><i
-                                        class="fas fa-heart"></i></button>
+                                        class="fas fa-heart"></i> Added to Favourites</button>
                                 {% else %}
                                 <button type="submit" class="favourites" name="favourites" 
                                 value="submit" aria-label="add to favourites"><i
-                                        class="far fa-heart"></i> Add to favourites</button>
+                                        class="far fa-heart"></i> Add to Favourites</button>
                                
                                 {% endif %}
                                 <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
                             </form>
                             {% else %}
-                            <span><i class="far fa-heart"></i></span>
+                            <form class="d-inline" method="POST" 
+                                action="{% url 'account_login' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+                                <button type="submit" class="favourites" name="favourites" 
+                                value="submit" aria-label="add to favourites"><i
+                                class="far fa-heart"></i> Add to Favourites</button>
+                            </form>
                             {% endif %}
                         </div>
                     </div>
