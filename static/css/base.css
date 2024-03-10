@@ -26,13 +26,19 @@ h1, h2,h3,h4,h5,h6 {
 }
 
 .row-shop-now {
-    background: url('/media/image-5.jpg') no-repeat center center fixed;
+    background: url('/media/hero-image-xl.jpg') no-repeat center center fixed;
     background-size: auto;
     height: 50vh;
     width: 100%;
     background-color: rgba(240, 238, 238);
     
 }
+
+.image-container {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+}
+
 
 .overlay {
 	height: 100%;
@@ -420,3 +426,15 @@ Mailchimp newsletter
 }
 
 
+/* Media queries */
+
+@media screen and (max-width:992px) {
+
+  .row-shop-now {
+    background: url('/media/hero-image-lg.jpg') no-repeat;
+    background-size:cover;
+    height: 40vh;
+ 
+      }
+
+  }
