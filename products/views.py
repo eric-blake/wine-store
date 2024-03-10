@@ -14,7 +14,7 @@ def all_products(request):
     """ A view to show all products"""
 
     products = Product.objects.all().order_by('-created')
-  
+    
     query = None
     colours = None
     styles = None
@@ -68,10 +68,10 @@ def all_products(request):
             products = products.filter(country__icontains='NZ') 
             
         if '6' in request.GET:
-            products = products.filter(description__icontains='6-bottle') 
+            products = products.filter(description__icontains='6 bottle') 
 
         if '12' in request.GET:
-            products = products.filter(description__icontains='12-bottle') 
+            products = products.filter(description__icontains='12 bottle') 
 
         if 'title' in request.GET:
             products = products.filter(title__icontains='Champagne') 
@@ -86,11 +86,15 @@ def all_products(request):
                 queries = Q(title__icontains=query) | Q(description__icontains=query)
                 products = products.filter(queries)
 
+
+    product_count = products.count()
     paginator = Paginator(products, 8)
     page_number = request.GET.get("page")
     products = paginator.get_page(page_number)
-
+   
     current_sorting = f'{sort}_{direction}'
+
+      
         
     context = {
             'products': products,
@@ -99,6 +103,7 @@ def all_products(request):
             'current_styles': styles,
             'current_grapes': grapes,
             'current_sorting': current_sorting,
+            'product_count': product_count,
         }
 
     return render(request, 'products/products.html', context)
@@ -227,10 +232,10 @@ def add_to_favourites(request, product_id):
     if Favourites.objects.filter(user=profile, product=product).exists():
         favourite_product = Favourites.objects.filter(user=profile, product=product) 
         favourite_product.delete()
-        messages.info(request, f'{product.title} removed from favourites')
+        messages.success(request, f'{product.title} removed from favourites')
     else:
         favourite_product = Favourites.objects.create(user=profile, product=product)
-        messages.info(request, f'{favourite_product.product.title} added to favourites')
+        messages.success(request, f'{favourite_product.product.title} added to favourites')
 
     return redirect(redirect_url)
 

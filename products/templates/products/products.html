@@ -47,7 +47,7 @@
                         {% if search_term or current_categories or current_sorting != 'None_None' %}
                         <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
                         {% endif %}
-                        {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term}}"</strong>{% endif %}
+                        {{ product_count }} Products{% if search_term %} found for <strong>"{{ search_term}}"</strong>{% endif %}
                     </p>
                 </div>
             </div>
@@ -77,15 +77,15 @@
                                     <p class="lead mb-0 text-left font-weight-bold text-center">€{{ product.price }}</p>
                                 </div>
                                 <!-- Add to favourites -->
-                                <div class="col">
+                                <div class="col d-flex flex-wrap align-content-center">
                                 {% if user.is_authenticated %}
                                 <form class="d-inline" method="POST" 
                                 action="{% url 'add_to_favourites' product.id %}">
                                     {% csrf_token %}
-                                    {% if item.favourites %}
+                                    {% if favourites %}
                                     <button type="submit" class="favourites" name="favourites" 
                                     value="submit" aria-label="remove from favourites"><i
-                                            class="fas fa-heart"></i></button>
+                                            class="fa fa-heart"></i></button>
                                     {% else %}
                                     <button type="submit" class="favourites" name="favourites" 
                                     value="submit" aria-label="add to favourites"><i
