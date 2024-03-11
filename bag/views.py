@@ -24,12 +24,12 @@ def add_to_bag(request, item_id):
                 messages.success(request, f'Updated {product.title} '
                                     f'quantity to {bag[item_id]}')  
             else:
-                messages.error(request, "Quantity selected not available, select lower quantity")
+                messages.error(request, "Quantity selected not available, select lower quantity. ")
         else:
             bag[item_id] = quantity
             messages.success(request, f'Added {product.title} to your bag')
     else:
-        messages.error(request, f'{product.title} out of stock' )
+        messages.error(request, "Quantity selected not available, select lower quantity. ")
 
     request.session['bag'] = bag
     return redirect(redirect_url)
@@ -61,7 +61,7 @@ def adjust_bag(request, item_id):
                                     f'quantity to {bag[item_id]}')
                     
     else: 
-         messages.error(request, 'Not enough stock to fulfill order. Reduce Qty.' )
+         messages.error(request, 'Quantity selected not available, select lower quantity. ' )
          
 
     request.session['bag'] = bag
