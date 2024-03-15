@@ -61,7 +61,7 @@
         <div class="d-lg-block">
             <div id="announcment-bar" class="row d-flex justify-content-center text-center banner text-white">
                     <h6 class="my-1 p-1">Free delivery on orders over €{{ free_delivery_threshold }}!</h6>
-                    <h6 class="my-1 p-1"> Use CODE20 to get 20% of sitewide</h6>
+                    <h6 class="my-1 p-1"> Use CODE20 to get 20%</h6>
             </div>
             </div>
             <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
@@ -150,7 +150,7 @@
         </header>
 
     {% if messages %}
-    <div class="message_container">
+    <div class="message-container">
         {% for message in messages %}
             {% with message.level as level %}
                 {% if level == 40 %}
