@@ -378,16 +378,16 @@ footer {
   padding: 0;
 }
 
+/* 
+Product card */
 
 .card-img-top {
-  /* width: 100% !important; */
   object-fit: cover;
   max-height:500px !important;
 
 } 
 
 .product-card {
-  /* height: 100px !important; */
   outline: 1px solid #a7abad;
   box-shadow: 0 1px 4px  #a7abad;
   
