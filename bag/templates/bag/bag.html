@@ -53,6 +53,7 @@
                                         <div class="input-group-prepend">
                                             <button
                                                 class="decrement-qty btn btn-black rounded-0 decrement-qty_{{ item.item_id  }}"
+                                                aria-label="decrement quantity"
                                                 data-item_id="{{ item.item_id }}">
                                                 <span class="icon">
                                                     <i class="fas fa-minus"></i>
@@ -64,6 +65,7 @@
                                         <div class="input-group-append">
                                             <button
                                                 class="increment-qty btn btn-black rounded-0 increment-qty_{{ item.item_id  }}"
+                                                aria-label="increment quantity"
                                                 data-item_id="{{ item.item_id  }}">
                                                 <span class="icon">
                                                     <i class="fas fa-plus"></i>
@@ -89,7 +91,7 @@
                             <h4>Got a discount code? </h4>
                         <form action="{% url 'apply_coupon' %}" method="post">
                             {{ apply_coupon_form }}
-                            <input type="submit">
+                            <input type="submit"  aria-label="apply coupon code">
                             {% csrf_token %}
                         </form>
                     </div>

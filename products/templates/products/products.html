@@ -78,32 +78,31 @@
                                 </div>
                                 <!-- Add to favourites -->
                                 <div class="col d-flex flex-wrap align-content-center">
-                                {% if user.is_authenticated %}
-                                <form class="d-inline" method="POST" 
-                                action="{% url 'add_to_favourites' product.id %}">
-                                    {% csrf_token %}
-                                    {% if favourites %}
-                                    <button type="submit" class="favourites" name="favourites" 
-                                    value="submit" aria-label="remove from favourites"><i
-                                            class="fa fa-heart"></i></button>
+                                    {% if user.is_authenticated %}
+                                    <form class="d-inline" method="POST" 
+                                    action="{% url 'add_to_favourites' product.id %}">
+                                        {% csrf_token %}
+                                        {% if favourites %}
+                                        <button type="submit" class="favourites" name="favourites" 
+                                        value="submit" aria-label="remove from favourites"><i
+                                                class="fas fa-heart"></i></button>
+                                        {% else %}
+                                        <button type="submit" class="favourites" name="favourites" 
+                                        value="submit" aria-label="add to favourites"><i
+                                                class="far fa-heart"></i></button>
+                                        {% endif %}
+                                        <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+                                    </form>
                                     {% else %}
-                                    <button type="submit" class="favourites" name="favourites" 
-                                    value="submit" aria-label="add to favourites"><i
-                                            class="far fa-heart"></i></button>
-                                    
+                                    <form class="d-inline" method="POST" 
+                                        action="{% url 'account_login' %}">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+                                        <button type="submit" class="favourites" name="favourites" 
+                                        value="submit" aria-label="add to favourites"><i
+                                        class="far fa-heart"></i></button>
+                                    </form>
                                     {% endif %}
-                                    <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
-                                </form>
-                                {% else %}
-                                <form class="d-inline" method="POST" 
-                                action="{% url 'account_login' %}">
-                                {% csrf_token %}
-                                <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
-                                <button type="submit" class="favourites" name="favourites" value="submit" 
-                                aria-label="add to favourites"><i
-                                class="far fa-heart"></i></button>
-                                </form>
-                                {% endif %}
                             </div>
   
                             </div>
