@@ -104,7 +104,6 @@
                                     </form>
                                     {% endif %}
                             </div>
-  
                             </div>
                         </div>
                         <form action="{% url 'add_to_bag' product.id %}" method="POST">
@@ -117,11 +116,18 @@
                             {% endif %} 
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </form>
+
+                        <!-- Edit and delete product -->
                         {% if request.user.is_superuser %}
                         <small class="text-center my-2">
-                            <a href="{% url 'edit_product' product.id %}" class="btn-sm mb-2 edit-btn">Edit</a>
-                            <a href="{% url 'delete_product' product.id %}" class="btn-sm mb-2 edit-btn">Delete </a>
+                        <a href="{% url 'edit_product' product.id %}" class="btn btn-sm mb-2 edit-btn">Edit</a>
+                
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-sm mb-2 edit-btn" data-toggle="modal" data-target="#deleteModal">
+                                Delete
+                        </button>
                         </small>
+                        {% include 'products/includes/delete_modal.html' %}
                         {% endif %}
                     </div>
                 </div>
@@ -176,7 +182,6 @@
 {% include 'includes/footer.html' %}
 </footer>     
     
-
 
 {% endblock %}
 
