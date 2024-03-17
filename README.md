@@ -97,8 +97,7 @@ The database model diagram was designed using Lucid Charts
 ![Screenshot of flowchart](static/images/entity-relationship-diagram.PNG)
 
 **Product Model**
-* The main model that contains all the fields needed for the products.
-* This model is based on the "Boutique Ado" walkthrough project. Some adjustments and additions were made to fit the needs of my project. 
+The main model that contains all the fields needed for the products. This model is based on the "Boutique Ado" walkthrough project. Some adjustments and additions were made to fit the needs of my project. 
   Colour,Closure,Style and Grape were added.
 
 **User Model**
@@ -122,10 +121,6 @@ This model stores all the users order details. it is connected to the userprofil
 **Order Line Item**
 This is craeted for each line item in the order. It is connected to the order and product tables with a ForeignKey.
 
-**Checkout Model**
-* Enable logged in users to add comments to different posts.
-* This model is based on the "I think therefore I blog" walkthrough project.
-
 
 ### Wireframe
 
@@ -143,7 +138,8 @@ Product Detail page | ![Post detail page image](documentation\images\wireframes\
 
 
 ### Fonts
-The fonts used through out are Lato and Karla. These are sans-serif fonts that are part of the Google font collection. They are professional and very readable fonts.
+In addition to Bootstrap 4 built in font family the below two fonts were used throughout the application
+* Lato and Karla: These are sans-serif fonts that are part of the Google font collection. They are professional and very readable fonts.
 
 ## Features
 
@@ -158,6 +154,7 @@ There is a "Shop Now" button on the home page to enable the user to start shoppi
 
 **Toasts**
 Toasts from Bootstrap were implemented to provide users with feedback regarding their actions on the website.
+![products](documentation\images\features\toast-message.PNG)
 
 
 **Latest Products**
@@ -167,31 +164,25 @@ The products displayed on the home page are the eight most recently added produc
 
 **Newsletter**
 The users can sign up to a newsletter to recieve the most recent offers and discount codes. The form was integrated using MailChimp.
-![newsletter](./assets/readme-images/features/home-page)
+![newsletter](documentation\images\features\newsletter.PNG)
 
+
+**Banner**
+The banner contains delivery information and current offers
+![banner](documentation\images\features\banner.PNG)
 
 **Navbar**
+* The navbar was built using bootstrap 4 and it is fully responsive.  The name of the website and logo is on the left hand side. The search bar allows the users to search for products by keywords from any page of the website. The My Account drop down gives the user the option to log in or sign up. If the user is a superuser/admin the Product Management drop down will allow the user to add new products. If the user is authenticated a favourites icon will link to the favourites page.The shopping bag icon is a link to the shopping bag and it also displays the total of the items in the bag. 
+* The bottom nav has a link to the home page. The Buy Wines dropdown allows users to refine the product list by type, country, style and grape. The Champagne and Wine Gifts links allows the user to refine the list by these categories.
 
-* The navbar is basic so that it is very easy for the user to read.  The name of the website is the top left hand corner. There are links to Home, About, Register and Login pages for all users. If the user is not signed in, the sign in and register links are visible on the navbar.
+![Navbar](documentation\images\features\nav.PNG)
 
+![Mobile Navbar](documentation\images\features\navbar-mobile.PNG)
 
-![Navbar for user not signed in](/static/images/nav-1.PNG)  
-
-* If the user is signed in, then there is a Logout link visible and a Create Post link.
-
-![Navbar for user not signed in](/static/images/nav-2.PNG)
-
-* In mobile view the navbar is collapsed into a hamburger icon, which when clicked shows the same information as in desktop view.
-
-![Mobile Navbar](/static/images/nav-3.PNG)
-
-![Mobile Navbar for not signed in user](/static/images/nav-4.PNG)
-
-![Mobile Navbar for signed in user](/static/images/nav-5.PNG)
+![Mobile Navbar dropdown](documentation\images\features\navbar-mobile-dropdown.PNG)
 
 
 **Footer**
-
 * The footer is simple layout with displaying social media options.  When an icon is clicked, it opens in a new tab so that the user still has the main site open.
 
 ![Footer](documentation\images\features\footer.PNG)
@@ -199,12 +190,12 @@ The users can sign up to a newsletter to recieve the most recent offers and disc
 
 **Register**
 
-* The form enables users to register for an account.
+*  The form enables users to register for an account.
 
 ![Register](documentation\images\features\register.PNG)
 
-**Sign-in** 
 
+**Sign-in** 
 * The form enables users to sign-in to their account.
   
 ![Sign-in](documentation\images\features\sign-in.PNG)
@@ -214,26 +205,6 @@ The users can sign up to a newsletter to recieve the most recent offers and disc
 * The form enables users to sign-out of their account.
 
 ![Sign-out](documentation\images\features\sign-out.PNG)
-
-
-**Navbar**
-
-* The navbar is basic so that it is very easy for the user to read.  The name of the website is the top left hand corner. There are links to Home, About, Register and Login pages for all users. If the user is not signed in, the sign in and register links are visible on the navbar.
-
-
-![Navbar for user not signed in](/static)
-
-* If the user is signed in, then there is a Logout link visible and a Create Post link.
-
-![Navbar for user not signed in](/static)
-
-* In mobile view the navbar is collapsed into a hamburger icon, which when clicked shows the same information as in desktop view.
-
-![Mobile Navbar](/static/images/nav-3.PNG)
-
-![Mobile Navbar for not signed in user](/static/images/nav-4.PNG)
-
-![Mobile Navbar for signed in user](/static/images/nav-5.PNG)
 
 
 **Products Page**
@@ -272,19 +243,24 @@ The shopping bag page can be accessed from the nav menu.
 - The subtotals are calculated automatically.
 
 
-
 **Coupon Codes**
-Teh coupon code 
-![coupon code](documentation\images\features\shopping-bag.PNG)
+The coupon code form is on the shopping bag page. When a user enters a valid coupon code the discount is applied to the grand total. the coupon can be removed by clicking the Remove Coupon button.
+![coupon code](documentation\images\features\coupon-code.PNG)
+
+![coupon code](documentation\images\features\coupon-applied.PNG)
 
 
 **Checkout Page**
 ![Checkout Image](/static)
 ![Coupon Image](/static)
 - The checkout page shows the products, prices, a coupon section, includes a users information and a stripe element for secure card payments.
-- The coupon code section allows a user to add a coupon code, which then shows how much of a discount the user will get, as well as their newly updated total price.
 - On successful checkout, an order summary page is shown. This will include the discount if a coupon was used, and has a link to brows more products after.
+- Users must enter their payment information before completing the checkout and all payments are handled via Stripe.
 ![Order Summary Image](/static)
+
+
+
+**order Confirmation Page**
 
 
 **Add products**
