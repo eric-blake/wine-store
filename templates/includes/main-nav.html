@@ -5,8 +5,28 @@
             <span class="sr-only">(current)</span></a>
         </li>
 
+         <!-- My account moved to dropdown toggler for mobile screens-->
+        <li class="nav-item dropdown d-lg-none">
+          <a class="nav-link mr-5 text-white" href="#" id="navbarDropdownMenuLink" 
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           My Account
+          </a>
+          <div class="dropdown-menu border-0" aria-labelledby="user-options">
+              {% if request.user.is_authenticated %}
+              {% if request.user.is_superuser %}
+              <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+              {% endif %}
+              <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+              <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+              {% else %}
+              <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+              <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+              {% endif %}
+          </div>
+      </li>
+
      <li class="nav-item dropdown">
-          <a class="nav-link mr-5 text-white" href="http://example.com" id="navbarDropdownMenuLink" 
+          <a class="nav-link mr-5 text-white" href="#" id="navbarDropdownMenuLink" 
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Buy Wines
           </a>
@@ -69,9 +89,14 @@
         </div>
           </li>
 
+          <!-- Favourites moved to dropdown toggler on small sceens -->
+          {% if request.user.is_authenticated %}                     
+          <li class="nav-item mr-5 d-lg-none">
+            <a class="nav-link text-white" href="{% url 'favourites' %}">Favourites</a>
+          </li>
+          {% endif %}
       </ul> 
     </div>
-  <!-- </nav> -->
 
 
   <script>

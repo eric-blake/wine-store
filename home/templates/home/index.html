@@ -10,7 +10,7 @@
 <div class="container-fluid image-container">
     <div class="row-shop-now text-center">
         <div class="col my-auto align">
-            <h1 class="display-4 logo-font text-white">
+            <h1 class="display-4 text-white pt-2" id="hero-message">
                 <strong>Winter Savings</strong>
             </h1>
             <div class="my-5">
@@ -71,22 +71,6 @@
                             {% endif %} 
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </form>
-
-                                
-                        <!-- Edit and delete product -->
-                        {% if request.user.is_superuser %}
-                        <small class="text-center my-2">
-                        <a href="{% url 'edit_product' product.id %}" class="btn btn-sm mb-2 edit-btn">Edit</a>
-                
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-sm mb-2 edit-btn" data-toggle="modal" data-target="#deleteModal">
-                                Delete
-                        </button>
-                        </small>
-                        {% include 'products/includes/delete_modal.html' %}
-                        {% endif %}
-
-                     
                     </div>
                 </div>
                 {% if forloop.counter|divisibleby:1 %}

@@ -438,3 +438,26 @@ Mailchimp newsletter
       }
 
   }
+
+
+  
+@media screen and (max-width:576px) {
+  .navbar-toggler-icon {
+  width:1em;
+  height:1em;
+  padding:none
+ 
+      }
+      
+.logo-font {
+  font-size: 20px;
+}
+
+#hero-message {
+  font-size: 28px;
+}
+
+
+  }
+
+
