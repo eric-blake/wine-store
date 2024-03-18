@@ -128,8 +128,8 @@ I used Mockflow to create the following wireframes for both desktop and mobile d
 
 Page | Wireframe Desktop  | Wireframe Mobile
 --- | --- | --- 
-Home page | ![Home page image](/documentation/images/wireframes/home-page.PNG) |![Home page image](\documentation\images\wireframes\home-page-mobile.PNG)
-Product Detail page | ![Post detail page image](documentation\images\wireframes\product-detail-page.PNG) |![Post detail page image](documentation\images\wireframes\product-detail-page-mobile.PNG)
+Home page | ![Home page image](/documentation/images/wireframes/home-page.PNG) |![Home page image](/documentation/images/wireframes/home-page-mobile.PNG)
+Product Detail page | ![Post detail page image](/documentation/images/wireframes/product-detail-page.PNG) |![Post detail page image](/documentation/images/wireframes/product-detail-page-mobile.PNG)
 
 
 ### Colour Scheme
@@ -149,95 +149,95 @@ In addition to Bootstrap 4 built in font family the below two fonts were used th
 **Hero Section**
 The home page features a hero image that shows the user what the site is about.
 There is a "Shop Now" button on the home page to enable the user to start shopping immediately.
-![home page](documentation\images\features\home-page.PNG)
+![home page](/documentation/images/features/home-page.PNG)
 
 
 **Toasts**
 Toasts from Bootstrap were implemented to provide users with feedback regarding their actions on the website.
-![products](documentation\images\features\toast-message.PNG)
+![products](/documentation/images/features/toast-message.PNG)
 
 
 **Latest Products**
 The products displayed on the home page are the eight most recently added products. 
-![products](documentation\images\features\latest-products.PNG)
+![products](/documentation/images/features/latest-products.PNG)
 
 
 **Newsletter**
 The users can sign up to a newsletter to recieve the most recent offers and discount codes. The form was integrated using MailChimp.
-![newsletter](documentation\images\features\newsletter.PNG)
+![newsletter](/documentation/images/features/newsletter.PNG)
 
 
 **Banner**
 The banner contains delivery information and current offers
-![banner](documentation\images\features\banner.PNG)
+![banner](/documentation/images/features/banner.PNG)
 
 **Navbar**
 * The navbar was built using bootstrap 4 and it is fully responsive.  The name of the website and logo is on the left hand side. The search bar allows the users to search for products by keywords from any page of the website. The My Account drop down gives the user the option to log in or sign up. If the user is a superuser/admin the Product Management drop down will allow the user to add new products. If the user is authenticated a favourites icon will link to the favourites page.The shopping bag icon is a link to the shopping bag and it also displays the total of the items in the bag. 
 * The bottom nav has a link to the home page. The Buy Wines dropdown allows users to refine the product list by type, country, style and grape. The Champagne and Wine Gifts links allows the user to refine the list by these categories.
 
-![Navbar](documentation\images\features\nav.PNG)
+![Navbar](/documentation/images/features/nav.PNG)
 
-![Mobile Navbar](documentation\images\features\navbar-mobile.PNG)
+![Mobile Navbar](/documentation/images/features/navbar-mobile.PNG)
 
-![Mobile Navbar dropdown](documentation\images\features\navbar-mobile-dropdown.PNG)
+![Mobile Navbar dropdown](/documentation/images/features/navbar-mobile-dropdown.PNG)
 
 
 **Footer**
 * The footer is simple layout with displaying social media options.  When an icon is clicked, it opens in a new tab so that the user still has the main site open.
 
-![Footer](documentation\images\features\footer.PNG)
+![Footer](/documentation/images/features/footer.PNG)
 
 
 **Register**
 
 *  The form enables users to register for an account.
 
-![Register](documentation\images\features\register.PNG)
+![Register](/documentation/images/features/register.PNG)
 
 
 **Sign-in** 
 * The form enables users to sign-in to their account.
   
-![Sign-in](documentation\images\features\sign-in.PNG)
+![Sign-in](/documentation/images/features/sign-in.PNG)
 
 **Sign-out**
 
 * The form enables users to sign-out of their account.
 
-![Sign-out](documentation\images\features\sign-out.PNG)
+![Sign-out](/documentation/images/features/sign-out.PNG)
 
 
 **Products Page**
 The all products page renders all products to the user. They have the option to sort the products by title, price, alphabetically and year. This page also displays the number of the products available. 
 At the end of the products page there is pagination to help the user navigate easily through multiple pages of products.
-![All products page image](documentation\images\features\all-products.PNG)
+![All products page image](/documentation/images/features/all-products.PNG)
 
 **Product Detail Page**
 The product image is displayed on the left side. The product details is on the right side. This includes the product title, description and price.
-![Product details page image](documentation\images\features\product-detail.PNG)
+![Product details page image](/documentation/images/features/product-detail.PNG)
 
 
 **Reviews**
 - The product review page allows authenticated users to leave a review.
 - The user can edit and delete their own reviews
-![Product Reviews page image](documentation\images\features\reviews.PNG)
+![Product Reviews page image](/documentation/images/features/reviews.PNG)
 
 
 **Profile**
 - The profile page renders a form for the user's address and phone number. If the user has any details saved, it renders prefilled.
 - The users order history is displayed.
-![profile page image](documentation\images\features\my-profile.PNG)
+![profile page image](/documentation/images/features/my-profile.PNG)
 
 
 **Favourites Page**
 This favourites page allows users to have a list of all the products they have added to their favourites page, by clicking the heart icon on each product.
 
-![Favourites page image](documentation\images\features\favourites.PNG)
+![Favourites page image](/documentation/images/features/favourites.PNG)
 
 
 **Shopping Bag Page**
 The shopping bag page can be accessed from the nav menu. 
-![Bag Image](documentation\images\features\shopping-bag.PNG)
+![Bag Image](/documentation/images/features/shopping-bag.PNG)
 - The bag page shows the products a user has in their bag.
 - This page allows for updating quantities, deleting products from their bag and viewing details of each product.
 - The subtotals are calculated automatically.
@@ -246,46 +246,46 @@ The shopping bag page can be accessed from the nav menu.
 **Stock Levels**
 - Stock quantitities have been implemented into the product model. When a user adds an item or updates the quantity in the shopping bag, the add-to-bag function checks the quantity selected plus the quantity of that item in the bag and compares it to the stock levels of the product. The user cannot add to bag more items than there is in stock. 
 - In the event that 2 orders for the same items go through at the same time and there is insufficient stock to fulfill both orders, the admin can cancel the status of the order and contact the customer for a refund. 
-![Stock error image](documentation\images\features\stock-error.PNG)
+![Stock error image](/documentation/images/features/stock-error.PNG)
 
 
 **Coupon Codes**
 The coupon code form is on the shopping bag page. When a user enters a valid coupon code the discount is applied to the grand total. The coupon can be removed by clicking the Remove Coupon button.
-![coupon code applied image](documentation\images\features\coupon-code.PNG)
+![coupon code applied image](/documentation/images/features/coupon-code.PNG)
 
-![coupon code applied image](documentation\images\features\coupon-applied.PNG)
+![coupon code applied image](/documentation/images/features/coupon-applied.PNG)
 
 
 **Checkout Page**
 - The checkout page shows the user's delivery and payment information and a summary of the user's order. if the user is logged in they can check the box to save their details for future transactions.
 - Users must enter their payment information before completing the checkout and all payments are handled via Stripe.
-![Checkout page Image](documentation\images\features\checkout.PNG)
+![Checkout page Image](/documentation/images/features/checkout.PNG)
 
 
 **Order Confirmation Page**
 - On successful checkout, an order summary page is shown. This will include the discount if a coupon was used.
-![Order summary page Image](documentation\images\features\order-confirmation.PNG)
+![Order summary page Image](/documentation/images/features/order-confirmation.PNG)
 
 
 **Order Confirmation Email**
 - On successful checkout, an order summary page is shown. This will include the discount if a coupon was used.
-![Order summary page Image](documentation\images\features\order-confirmation.PNG)
+![Order summary page Image](/documentation/images/features/order-confirmation.PNG)
 
 
 **Add products**
 - This page shows the product creation form and all required fields and allows the admin to add an item to the database. 
-![Add Product Image](documentation\images\features\add-product.PNG)
+![Add Product Image](/documentation/images/features/add-product.PNG)
 
 
 **Edit products**
 - The edit product page shows the product form prefilled with the existing data in the database. It allows the admin to modify all details about the products.
-![Edit Product Image](documentation\images\features\edit-product.PNG)
+![Edit Product Image](/documentation/images/features/edit-product.PNG)
 
 
 **Delete products**
 - This allows the admin to delete a product. 
 - A confirmation modal appears when the user clicks on delete. The user clicks on Confirm Delete to permanently delete the product.
-![Delete Product Image](documentation\images\features\delete-product.PNG)
+![Delete Product Image](/documentation/images/features/delete-product.PNG)
 
 
 **Admin Page**
@@ -293,7 +293,7 @@ The coupon code form is on the shopping bag page. When a user enters a valid cou
 * The admin page is only accessible by typing "admin" in the url <https://wine-store-ci-bbef57464b33.herokuapp.com/admin/>.
 * User name and password must be entered to access the admin page.
 * The administrator can manage products, users, orders and coupons.
-![Admin page Image](documentation\images\features\admin.PNG)
+![Admin page Image](/documentation/images/features/admin.PNG)
 
 
 ### Future Features
@@ -319,11 +319,7 @@ This website follows a Business to Customer model - it sells wine products direc
 ![Newsletter](documentation\images\features\newsletter.PNG)
 
 - A Facebook Business Page was created. The main goal of this Facebook page would be to showcase new deals on products, give coupon code discounts to followers, and have targeted ads for different times of the year - "Christmas Sale", "Valentines Specials"   etc.
-![Facebook Business Page](documentation\images\features\facebook-page.PNG)
-
-
-## Testing
-Testing documentation can be found [here.](TESTING.md)
+![Facebook Business Page](/documentation/images/features/facebook-page.PNG)
 
 
 ## Technologies Used
