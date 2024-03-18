@@ -3,12 +3,16 @@ import uuid
 from django.db import models
 from django_countries.fields import CountryField
 from products.models import Product
+from coupons.models import Coupon
 from django.db.models import Sum
 from django.conf import settings
 from profiles.models import UserProfile
 
 
 class Order(models.Model):
+    """
+    An order model that stores all the users order details.
+    """
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=True,
@@ -32,7 +36,7 @@ class Order(models.Model):
     original_bag = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(max_length=254, null=False, blank=False,
                                   default='')
-
+    coupon = models.ForeignKey(Coupon, on_delete=models.SET_NULL, blank=True, null=True)
 
 
     def _generate_order_number(self):
@@ -52,7 +56,15 @@ class Order(models.Model):
             self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
         else:
             self.delivery_cost = 0
+            
         self.grand_total = self.order_total + self.delivery_cost
+        self.save()
+
+        # Update for coupon
+        if self.coupon is not None:
+            discount = self.order_total * self.coupon.discount
+            self.order_total -= discount
+        self.grand_total = self.order_total +  self.delivery_cost
         self.save()
 
 
@@ -66,8 +78,10 @@ class Order(models.Model):
         super().save(*args, **kwargs)
 
 
-
 class OrderLineItem(models.Model):
+    """
+    An order line item model for each line item in the order
+    """
     order = models.ForeignKey(Order, null=False, blank=False,
                               on_delete=models.CASCADE,
                               related_name='lineitems')
@@ -78,6 +92,7 @@ class OrderLineItem(models.Model):
                                          null=False, blank=False,
                                          editable=False)
     
+
     def save(self, *args, **kwargs):
             """
             Override the original save method to set the lineitem total

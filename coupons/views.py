@@ -4,9 +4,8 @@ from django.utils import timezone
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 
-# Coupon code learnings from https://www.youtube.com/watch?v=_dSCGMJcoe4
 
-
+# Coupon code concept from https://www.youtube.com/watch?v=_dSCGMJcoe4
 def apply_coupon(request):
     """Apply coupon code"""
     now = timezone.now()
