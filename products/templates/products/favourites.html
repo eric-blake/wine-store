@@ -43,7 +43,7 @@
                             {% csrf_token %}
                             <input type="hidden" name="quantity" value="1">
                             {% if item.product.in_stock %}
-                            <input type="submit" class="add-to-bag btn rounded-0 text-uppercase text-white mb-2" value="Add to Bag">
+                            <input type="submit" class="add-to-bag btn rounded-0 text-uppercase text-white" value="Add to Bag">
                             {% else %}
                             <input type="text" class="out-of-Stock-btn mb-3 text-center" value="Out of Stock">
                             {% endif %}

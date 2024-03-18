@@ -7,11 +7,11 @@
 
          <!-- My account moved to dropdown toggler for mobile screens-->
         <li class="nav-item dropdown d-lg-none">
-          <a class="nav-link mr-5 text-white" href="#" id="navbarDropdownMenuLink" 
+          <a class="nav-link mr-5 text-white" href="#" id="account-options" 
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            My Account
           </a>
-          <div class="dropdown-menu border-0" aria-labelledby="user-options">
+          <div class="dropdown-menu border-0" aria-labelledby="account-options">
               {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
               <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
@@ -26,18 +26,18 @@
       </li>
 
      <li class="nav-item dropdown">
-          <a class="nav-link mr-5 text-white" href="#" id="navbarDropdownMenuLink" 
+          <a class="nav-link mr-5 text-white" href="#" id="buy-wines-link"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Buy Wines
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <ul class="dropdown-menu" aria-labelledby="buy-wines-link">
             
             <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle">By Type</a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{% url 'products' %}?colour=Red">Red Wine</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?colour=White">White Wine</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?colour=Rose">Rose Wine</a></li>
-                <a href="{% url 'products' %}" class="dropdown-item">All Wines</a>
+                <li><a href="{% url 'products' %}" class="dropdown-item">All Wines</a></li>
               </ul>
             </li>
 
@@ -47,9 +47,9 @@
                 <li><a class="dropdown-item" href="{% url 'products' %}?France">France</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?USA">USA</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?Australia">Australia</a></li>
-                <li><a class="dropdown-item" href="{% url 'products' %}?New Zeland">New Zeland</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?New_Zeland">New Zeland</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?Chile">Chile</a></li>
-                <a href="{% url 'products' %}" class="dropdown-item">All Countries</a>
+                <li><a href="{% url 'products' %}" class="dropdown-item">All Countries</a></li>
               </ul>
             </li>
 
@@ -58,7 +58,7 @@
                   <li><a class="dropdown-item" href="{% url 'products' %}?style=Crisp_Zesty">Crisp &amp; Zesty</a></li>
                   <li><a class="dropdown-item" href="{% url 'products' %}?style=Ripe_Rounded">Ripe &amp; Rounded</a></li>
                   <li><a class="dropdown-item" href="{% url 'products' %}?style=Smooth_Mellow">Smooth &amp; Mellow</a></li>
-                  <a href="{% url 'products' %}" class="dropdown-item">All Styles</a>
+                  <li><a href="{% url 'products' %}" class="dropdown-item">All Styles</a></li>
                 </ul>
               </li>
 
@@ -67,7 +67,7 @@
                   <li><a class="dropdown-item" href="{% url 'products' %}?grape=Sauvignon_Blanc">Sauvignon Blanc</a></li>
                   <li><a class="dropdown-item" href="{% url 'products' %}?grape=Chardonnay">Chardonnay</a></li>
                   <li><a class="dropdown-item" href="{% url 'products' %}?grape=Pinot_Noir">Pinot Noir</a></li>
-                  <a href="{% url 'products' %}" class="dropdown-item">All Grapes</a>
+                  <li><a href="{% url 'products' %}" class="dropdown-item">All Grapes</a></li>
                 </ul>
               </li>
 
@@ -79,13 +79,13 @@
           </li>
 
           <li class="nav-item dropdown">
-            <a class="logo-font nav-link text-white mr-5" href="#" data-toggle="dropdown" 
+            <a class="nav-link text-white mr-5" href="#" data-toggle ="dropdown" id="wine-gifts-link"
             aria-haspopup="true" aria-expanded="false">
               Wine Gifts
           </a>
           <div class="dropdown-menu border-0" aria-labelledby="wine-gifts-link">
             <a href="{% url 'products' %}?6" class="dropdown-item">6 Bottle Cases</a>
-            <a href="{% url 'products' %}?12"class="dropdown-item">12 Bottle Cases</a>
+            <a href="{% url 'products' %}?12" class="dropdown-item">12 Bottle Cases</a>
         </div>
           </li>
 

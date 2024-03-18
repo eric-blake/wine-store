@@ -110,25 +110,12 @@
                             {% csrf_token %}
                             <input type="hidden" name="quantity" value="1">
                             {% if product.in_stock %}
-                            <input type="submit" class="add-to-bag btn rounded-0 text-uppercase text-white mb-2" value="Add to Bag">
+                            <input type="submit" class="add-to-bag btn rounded-0 text-uppercase text-white" value="Add to Bag">
                             {% else %}
                             <input type="text" class="out-of-Stock-btn mb-3 text-center" value="Out of Stock" disabled>
                             {% endif %} 
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </form>
-
-                        <!-- Edit and delete product -->
-                        {% if request.user.is_superuser %}
-                        <small class="text-center my-2">
-                        <a href="{% url 'edit_product' product.id %}" class="btn btn-sm mb-2 edit-btn">Edit</a>
-                
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-sm mb-2 edit-btn" data-toggle="modal" data-target="#deleteModal">
-                                Delete
-                        </button>
-                        </small>
-                        {% include 'products/includes/delete_modal.html' %}
-                        {% endif %}
                     </div>
                 </div>
                 <!-- Horizontal rule after each row of products -->
@@ -178,22 +165,20 @@
 </nav>
 
 <!-- Footer -->
-<footer>
-{% include 'includes/footer.html' %}
-</footer>     
+{% include 'includes/footer.html' %}    
     
 
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
+<script>
     $('.btt-link').click(function (e) {
         window.scrollTo(0, 0)
     })
 </script>
 
-<script type="text/javascript">
+<script>
     $('#sort-selector').change(function () {
         var selector = $(this);
         var currentUrl = new URL(window.location);
