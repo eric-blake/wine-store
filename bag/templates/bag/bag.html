@@ -43,7 +43,7 @@
                             <p class="my-0"><strong>{{ item.product.title }}</strong></p>
                         </td>
                         <td class="py-3">
-                            <p class="my-0">${{ item.product.price }}</p>
+                            <p class="my-0">€{{ item.product.price }}</p>
                         </td>
                         <td class="py-3 w-25">
                             <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
@@ -80,7 +80,7 @@
                                 id="remove_{{ item.item_id }}"><small>Remove</small></a>
                         </td>
                         <td class="py-3">
-                            <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                            <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </td>
                         {% endfor %}
                     </tr>    
