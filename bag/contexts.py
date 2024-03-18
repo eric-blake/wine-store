@@ -26,7 +26,6 @@ def bag_contents(request):
             'product': product,
         })
 
-           
     if discount:
         coupon_discount = total * Decimal(discount/100)
         total -= coupon_discount

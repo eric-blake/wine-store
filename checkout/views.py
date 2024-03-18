@@ -36,6 +36,8 @@ def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
+    discount = request.session.get('discount')
+
     if request.method == 'POST':
         bag = request.session.get('bag', {})
 
@@ -84,6 +86,13 @@ def checkout(request):
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
+                
+            # Add discount to order
+            if discount: 
+                coupon_discount = (order.order_total * discount)/100
+                order.coupon_discount  = coupon_discount 
+                order.update_total()
+                order.save()
                 
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success',
@@ -140,8 +149,6 @@ def checkout(request):
     }
 
     return render(request, template, context)
-
-
 
 
 def checkout_success(request, order_number):

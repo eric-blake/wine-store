@@ -7,6 +7,7 @@ from coupons.models import Coupon
 from django.db.models import Sum
 from django.conf import settings
 from profiles.models import UserProfile
+from decimal import Decimal
 
 
 class Order(models.Model):
@@ -36,7 +37,8 @@ class Order(models.Model):
     original_bag = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(max_length=254, null=False, blank=False,
                                   default='')
-    coupon = models.ForeignKey(Coupon, on_delete=models.SET_NULL, blank=True, null=True)
+    coupon_discount = models.DecimalField(max_digits=6, decimal_places=2,
+                                        null=False, default=0)
 
 
     def _generate_order_number(self):
@@ -49,22 +51,19 @@ class Order(models.Model):
     def update_total(self):
         """
         Update grand total each time a line item is added,
-        accounting for delivery costs.
+        accounting for delivery costs and coupon discount.
         """
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
             self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
         else:
             self.delivery_cost = 0
             
-        self.grand_total = self.order_total + self.delivery_cost
-        self.save()
-
-        # Update for coupon
-        if self.coupon is not None:
-            discount = self.order_total * self.coupon.discount
-            self.order_total -= discount
-        self.grand_total = self.order_total +  self.delivery_cost
+        # Coupon 
+        if self.coupon_discount  > 0:
+            self.order_total -= self.coupon_discount 
+        self.grand_total = self.order_total + Decimal(self.delivery_cost)
         self.save()
 
 
