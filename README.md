@@ -94,7 +94,7 @@ All User Stories include:
 ### Structure & Logical Flow
 
 The database model diagram was designed using Lucid Charts
-![Screenshot of flowchart](static/images/entity-relationship-diagram.PNG)
+![Screenshot of flowchart](\documentation\images\features\ERD.PNG)
 
 **Product Model**
 The main model that contains all the fields needed for the products. This model is based on the "Boutique Ado" walkthrough project. Some adjustments and additions were made to fit the needs of my project. 
@@ -128,7 +128,7 @@ I used Mockflow to create the following wireframes for both desktop and mobile d
 
 Page | Wireframe Desktop  | Wireframe Mobile
 --- | --- | --- 
-Home page | ![Home page image](documentation\images\wireframes\home-page.PNG) |![Home page image](documentation\images\wireframes\home-page-mobile.PNG)
+Home page | ![Home page image](/documentation/images/wireframes/home-page.PNG) |![Home page image](\documentation\images\wireframes\home-page-mobile.PNG)
 Product Detail page | ![Post detail page image](documentation\images\wireframes\product-detail-page.PNG) |![Post detail page image](documentation\images\wireframes\product-detail-page-mobile.PNG)
 
 
@@ -243,44 +243,63 @@ The shopping bag page can be accessed from the nav menu.
 - The subtotals are calculated automatically.
 
 
-**Coupon Codes**
-The coupon code form is on the shopping bag page. When a user enters a valid coupon code the discount is applied to the grand total. the coupon can be removed by clicking the Remove Coupon button.
-![coupon code](documentation\images\features\coupon-code.PNG)
+**Stock Levels**
+- Stock quantitities have been implemented into the product model. When a user adds an item or updates the quantity in the shopping bag, the add-to-bag function checks the quantity selected plus the quantity of that item in the bag and compares it to the stock levels of the product. The user cannot add to bag more items than there is in stock. 
+- In the event that 2 orders for the same items go through at the same time and there is insufficient stock to fulfill both orders, the admin can cancel the status of the order and contact the customer for a refund. 
+![Stock error image](documentation\images\features\stock-error.PNG)
 
-![coupon code](documentation\images\features\coupon-applied.PNG)
+
+**Coupon Codes**
+The coupon code form is on the shopping bag page. When a user enters a valid coupon code the discount is applied to the grand total. The coupon can be removed by clicking the Remove Coupon button.
+![coupon code applied image](documentation\images\features\coupon-code.PNG)
+
+![coupon code applied image](documentation\images\features\coupon-applied.PNG)
 
 
 **Checkout Page**
-![Checkout Image](/static)
-![Coupon Image](/static)
-- The checkout page shows the products, prices, a coupon section, includes a users information and a stripe element for secure card payments.
-- On successful checkout, an order summary page is shown. This will include the discount if a coupon was used, and has a link to brows more products after.
+- The checkout page shows the user's delivery and payment information and a summary of the user's order. if the user is logged in they can check the box to save their details for future transactions.
 - Users must enter their payment information before completing the checkout and all payments are handled via Stripe.
-![Order Summary Image](/static)
+![Checkout page Image](documentation\images\features\checkout.PNG)
 
 
+**Order Confirmation Page**
+- On successful checkout, an order summary page is shown. This will include the discount if a coupon was used.
+![Order summary page Image](documentation\images\features\order-confirmation.PNG)
 
-**order Confirmation Page**
+
+**Order Confirmation Email**
+- On successful checkout, an order summary page is shown. This will include the discount if a coupon was used.
+![Order summary page Image](documentation\images\features\order-confirmation.PNG)
 
 
 **Add products**
+- This page shows the product creation form and all required fields and allows the admin to add an item to the database. 
+![Add Product Image](documentation\images\features\add-product.PNG)
 
 
 **Edit products**
-This edit product page shows the product form prefilled with the existing data in the database. It allows the admin to modify all details about the products.
-![Edit Product Image](/static)
+- The edit product page shows the product form prefilled with the existing data in the database. It allows the admin to modify all details about the products.
+![Edit Product Image](documentation\images\features\edit-product.PNG)
+
 
 **Delete products**
-This allows the admin to delete a product
-![Delete Product Image](/static)
+- This allows the admin to delete a product. 
+- A confirmation modal appears when the user clicks on delete. The user clicks on Confirm Delete to permanently delete the product.
+![Delete Product Image](documentation\images\features\delete-product.PNG)
+
+
+**Admin Page**
+* An admin area only allowing access to the site admin/superuser.
+* The admin page is only accessible by typing "admin" in the url <https://wine-store-ci-bbef57464b33.herokuapp.com/admin/>.
+* User name and password must be entered to access the admin page.
+* The administrator can manage products, users, orders and coupons.
+![Admin page Image](documentation\images\features\admin.PNG)
 
 
 ### Future Features
-
 * Send email to customers when their order changes status.
-* Coupon management page for superusers/admin
+* Coupon management on product management page for superusers/admin
 * Social media login.
-* Add a Blog.
 * FAQ page, About page, Terms and conditions and privacy staement.
 
 
@@ -297,10 +316,10 @@ This website follows a Business to Customer model - it sells wine products direc
 
 ### Marketing
 - The website has an embedded [Mailchimp](https://mailchimp.com/?currency=EUR) newsletter in the footer. This section facilitates user engagement and promotes the e-commerce store through effective email marketing.
-![Newsletter](/)
+![Newsletter](documentation\images\features\newsletter.PNG)
 
 - A Facebook Business Page was created. The main goal of this Facebook page would be to showcase new deals on products, give coupon code discounts to followers, and have targeted ads for different times of the year - "Christmas Sale", "Valentines Specials"   etc.
-![Facebook Business Page](/)
+![Facebook Business Page](documentation\images\features\facebook-page.PNG)
 
 
 ## Testing
@@ -358,6 +377,12 @@ Testing documentation can be found [here.](TESTING.md)
 * The front end development framework used for styling along with custom CSS.
   
 **Pillow**
+
+### Programs
+- [W3C HTML Validator](https://validator.w3.org/) was used to check for errors in the HTML code.
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to check for errors in the CSS code
+- [Js Hint](https://jshint.com/) was used to validate the JavaScript code.
+- [CI Python Linter](https://pep8ci.herokuapp.com/) was used to validate the Python code.
 
 
 ## Testing
