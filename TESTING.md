@@ -4,40 +4,87 @@
 
   - [Manual Testing](#manual-testing)
     - [Navbar and Footer (base.html)](#navbar-and-footer-basehtml)
-      - [Sidebar](#sidebar)
-      - [Pagination](#pagination)
-      - [Post Detail Page (User signed in)](#post-detail-page-user-signed-in)
-      - [Post Detail Page (User signed out)](#post-detail-page-user-signed-out)
-      - [Register Page](#register-page)
-      - [Login Page](#login-page)
-      - [Logout Page](#logout-page)
-      - [Create Post Page](#create-post-page)
-      - [Update Post Page](#update-post-page)
-      - [Delete post Page](#delete-post-page)
-    - [About page (User signed out)](#about-page-user-signed-out)
-    - [About page (User signed in)](#about-page-user-signed-in)
-    - [Admin panel](#admin-panel)
-  - [Browser Testing](#browser-testing)
-  - [Device Testing](#device-testing)
-  - [Bugs](#bugs)
+
 
 ## Validator Testing
 ### validate
 
 ### HTML
+All HTML pages were run though the Validator: [W3C Validator](https://validator.w3.org/)
 
-
-### CSS
-
-
-### JavaScript
-
-
-### Python
+|Page|Validator|Result|
+| --- | --- | --- |
+| Home |![home](/documentation/images/testing/html/home.png) | PASS |
+| All Products |![all products](/documentation/images/testing/html/products.png) | PASS |
+| Product |![product](/documentation/images/testing/html/product.png) | PASS |
+| Favourites |![favourites](/documentation/images/testing/html/favourites.png) | PASS |
+| Product Management |![home]() | PASS |
+| Edit product |![home]() | PASS |
+| Delete product |![home]() | PASS |
+| Edit review |![home]() | PASS |
+| Delete review |![home]() | PASS |
+| My Profile |![home]() | PASS |
+| Shopping Bag |![home]() | PASS |
+| Checkout |![home]() | PASS |
+| Checkout success |![home]() | PASS |
 
 
 ### Lighthouse
+|Page|Validator|Result|
+| --- | --- | --- |
+| Home desktop |![home desktop](/documentation/images/testing/lighthouse/home-desktop.png) | PASS |
+| Home mobile |![home mobile](/documentation/images/testing/lighthouse/home-mobile.png) | PASS |
+| Products desktop |![products desktop](/documentation/images/testing/lighthouse/products-desktop.png) | PASS |
+| Products mobile |![products mobile](/documentation/images/testing/lighthouse/products-mobile.png) | PASS |
+| Product |![product desktop](/documentation/images/testing/lighthouse/product-desktop.png) | PASS |
+| Product |![product mobile](/documentation/images/testing/lighthouse/product-mobile.png) | PASS |
+| Product management |![product management desktop](/documentation/images/testing/lighthouse/product-management-desktop.png) | PASS |
+| Product management |![product management mobile](/documentation/images/testing/lighthouse/product-management-mobile.png) | PASS |
 
+
+### CSS
+ No errors were found when passing through the: [Jigsaw Validator](https://jigsaw.w3.org/css-validator/validator)
+ ![CSS validator image](/)
+
+### JavaScript
+The small JavaScript snippet in the base.html has been passed through [JSHint Validator](https://jshint.com/) without issue.
+
+### Python
+Only files with custom-written Python code have been verified with the [CI Python Linter](https://pep8ci.herokuapp.com/).
+
+|App|File|Image|Result|
+| --- |----| --- | --- |
+| bag | urls |![python](/documentation/images/testing/python/bag-url.PNG) | PASS |
+| bag | views |![python](/documentation/images//testing/python/bag-views.PNG) | PASS |
+| bag | tools |![python](/documentation/images//testing/python/bag-tools.PNG) | PASS |
+| bag | context |![python](/documentation/images//testing/python/bag-context.PNG) | PASS |
+| checkout | admin |![python](/documentation/images/testing/python/checkout-admin.PNG) | PASS |
+| checkout | forms |![python](/documentation/images/testing/python/checkout-forms.PNG) | PASS |
+| checkout | models |![python](/documentation/images/testing/python/checkout-models.PNG) | PASS |
+| checkout | signals |![python](/documentation/images/testing/python/checkout-signals.PNG) | PASS |
+| checkout | urls |![python](/documentation/images/testing/python/checkout-urls.PNG) | PASS |
+| checkout | views |![python](/documentation/images/testing/python/checkout-views.PNG) | PASS |
+| checkout | webhook-handler |![python](/documentation/images/testing/python/checkout-webhook-handler.PNG) | PASS |
+| checkout | webhooks |![python](/documentation/images/testing/python/checkout-webhooks.PNG) | PASS |
+| coupons | admin |![python](/documentation/images/testing/python/coupons-admin.PNG) | PASS |
+| coupons | forms |![python](/documentation/images/testing/python/coupons-forms.PNG) | PASS |
+| coupons | models |![python](/documentation/images/testing/python/coupons-models.PNG) | PASS |
+| coupons | urls |![python](/documentation/images/testing/python/coupons-urls.PNG) | PASS |
+| coupons | views |![python](/documentation/images/testing/python/coupons-views.PNG) | PASS |
+| home | urls |![python](/documentation/images/testing/python/home-urls.PNG) | PASS |
+| home | views |![python](/documentation/images//testing/python/home-views.PNG) | PASS |
+| products | forms |![python](/documentation/images/testing/python/products-forms.PNG) | PASS |
+| products | admin |![python](/documentation/images/testing/python/products-admin.PNG) | PASS |
+| products | models |![python](/documentation/images/testing/python/products-models.PNG) | PASS |
+| products | urls |![python](/documentation/images/testing/python/products-urls.PNG) | PASS |
+| products | views |![python](/documentation/images/testing/python/products-views.PNG) | PASS |
+| products | widgets |![python](/documentation/images/testing/python/products-widgets.PNG) | PASS |
+| profiles | forms |![python](/documentation/images/testing/python/profiles-forms.PNG) | PASS |
+| profiles | models |![python](/documentation/images/testing/python/profiles-models.PNG) | PASS |
+| profiles | urls |![python](/documentation/images/testing/python/profiles-urls.PNG) | PASS |
+| profiles | views |![python](/documentation/images/testing/python/profiles-views.PNG) | PASS |
+| winestore | urls |![python](/documentation/images/testing/python/winestore-urls.PNG) | PASS |
+| winestore | custom-storages |![python](/documentation/images/testing/python/winstore-custom-storages.PNG) | PASS |
 
 ## Manual Testing
 
@@ -86,27 +133,27 @@
 | Feature | Action| Expected Result | Actual Result | Pass/Fail |
 |---------|--------|--------|--------|-----------|
 | Product detail page  |   Click on product image    | When the user clicks on the product image, they should be redirected to the detailed view for the selected Product          |    As expected      |  Pass |
-|    Product details   |   Click on a Product   |  All product details should be visible      |    All details are present   |     Pass      |
-|    Add to favourites  |  Click on the heart icon  |   Ensure the page reloads, a flash message is displayed with confirmation and the icon changes to full heart   | As expected     |     Pass      |
-|   Remove favourites  |  Click on the heart icon again  |   Ensure the page reloads, a flash message is displayed with confirmation and the icon changes to regular heart   | As expected     |     Pass      |
+| Product details   |   Click on a Product   |  All product details should be visible      |    All details are present   |     Pass      |
+| Add to favourites  |  Click on the heart icon  |   Ensure the page reloads, a flash message is displayed with confirmation and the icon changes to full heart   | As expected     |     Pass      |
+| Remove favourites  |  Click on the heart icon again  |   Ensure the page reloads, a flash message is displayed with confirmation and the icon changes to regular heart   | As expected     |     Pass      |
 
 
 #### Product Detail Page (User signed out)
 | Feature | Action| Expected Result | Actual Result | Pass/Fail |
 |---------|--------|--------|--------|-----------|
-|    Add to favourites button |  Click on the heart icon |    The page redirects to the login page   |  As expected    |     Pass      |
-|    Add to bag button |  Click on the add to bag button |    When clicked the product is added to the shopping bag  |  As expected    |     Pass      |
-|    Update quantity |  Click on the + and - buttons |    The quantity is incremented and decremented   |  As expected    |     Pass      |
-|    Stock levels|  Select higher quantity than stock level and attenmp to add to bag |   When clicked error message is displayed not enough stock   |  As expected    |     Pass      |
+| Add to favourites button |  Click on the heart icon |    The page redirects to the login page   |  As expected    |     Pass      |
+| Add to bag button |  Click on the add to bag button |    When clicked the product is added to the shopping bag  |  As expected    |     Pass      |
+| Update quantity |  Click on the + and - buttons |    The quantity is incremented and decremented   |  As expected    |     Pass      |
+| Stock levels|  Select higher quantity than stock level and attenmp to add to bag |   When clicked error message is displayed not enough stock   |  As expected    |     Pass      |
 
 
 
 #### Product Detail Page (Superuser)
 | Feature | Action| Expected Result | Actual Result | Pass/Fail |
 |---------|--------|--------|--------|-----------|
-|    Edit product |  Click on the edit button |    The page redirects to the edit product page, the product details can be updated and the changes saved   |  As expected    |     Pass      |
-|    Delete product |  Click on the delete button |    The page redirects to the edit product page   |  As expected    |     Pass      |
-|    Edit review |  Click on the edit button |    The page redirects to the edit review page, the product review can be updated and the changes saved   |  As expected    |     Pass      |
+| Edit product |  Click on the edit button |    The page redirects to the edit product page, the product details can be updated and the changes saved   |  As expected    |     Pass      |
+| Delete product |  Click on the delete button |    The page redirects to the edit product page   |  As expected    |     Pass      |
+| Edit review |  Click on the edit button |    The page redirects to the edit review page, the product review can be updated and the changes saved   |  As expected    |     Pass      |
 |    Delete review |  Click on the delete button |    The review is deleted   |  As expected    |     Pass      |
 </details>
 
@@ -141,9 +188,9 @@
 
 
 ### Checkout (User signed out)
-| Feature | Action| Expected Result | Actual Result | Pass/Fail |
+|Feature | Action| Expected Result | Actual Result | Pass/Fail |
 |---------|--------|--------|--------|-----------|
-|   Delivery information   |  Place order   |  Delivery information not saved   |  As expected    |     Pass      |
+| Delivery information   |  Place order   |  Delivery information not saved   |  As expected    |     Pass      |
 </details>
 
 <details>
@@ -153,8 +200,8 @@
 ### My Profile Page 
 | Feature | Action| Expected Result | Actual Result | Pass/Fail |
 |---------|--------|--------|--------|-----------|
-|    Profile |   Fill in the form and click update  |  Profile is updatd  |  As expected    |     Pass      |
-|    Order history | Go to My profile   | A list of all previous orders is visible   |  As expected    |     Pass      |
+| Profile |   Fill in the form and click update  |  Profile is updatd  |  As expected    |     Pass      |
+| Order history | Go to My profile   | A list of all previous orders is visible   |  As expected    |     Pass      |
 | Order history details    |  Click on the order number   |  The order details page is displayed   |  As expected    |     Pass      |
 </details>
 
