@@ -2,6 +2,7 @@ from django import forms
 from .models import Product, Colour, Closure, Style, Grape, Review
 from .widgets import CustomClearableFileInput
 
+
 class ProductForm(forms.ModelForm):
 
     class Meta:
@@ -11,7 +12,6 @@ class ProductForm(forms.ModelForm):
     image = forms.ImageField(label='Image',
                              required=False,
                              widget=CustomClearableFileInput)
-
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -25,4 +25,3 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         fields = ['review']
-

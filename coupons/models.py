@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 
+
 class Coupon(models.Model):
     """
     A coupon model for discount codes to offer to customer

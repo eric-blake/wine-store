@@ -1,6 +1,5 @@
-from django.shortcuts import (
-render, redirect, reverse, get_object_or_404, HttpResponse
-)
+from django.shortcuts import (render, redirect, reverse,
+                              get_object_or_404, HttpResponse)
 from django.contrib import messages
 from .forms import OrderForm
 from bag.contexts import bag_contents
@@ -60,7 +59,7 @@ def checkout(request):
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
-            order.original_bag =json.dumps(bag)
+            order.original_bag = json.dumps(bag)
             order.save()
 
             for item_id, item_qty in bag.items():
@@ -70,7 +69,8 @@ def checkout(request):
                         product.stock_qty -= item_qty
                         product.save()
                     else:
-                        messages.error(request, f'{product.title} is out of stock')
+                        messages.error(request, f'{product.title} is '
+                                                f' out of stock')
 
                     order_line_item = OrderLineItem(
                             order=order,
@@ -78,7 +78,6 @@ def checkout(request):
                             quantity=item_qty,
                         )
                     order_line_item.save()
-
 
                 except Product.DoesNotExist:
                     messages.error(request, (
@@ -88,14 +87,14 @@ def checkout(request):
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
-                
+
             # Add discount to order
             if discount:
                 coupon_discount = (order.order_total * discount)/100
-                order.coupon_discount  = coupon_discount 
+                order.coupon_discount = coupon_discount
                 order.update_total()
                 order.save()
-                
+
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success',
                                     args=[order.order_number]))
@@ -104,12 +103,13 @@ def checkout(request):
             messages.error(request, ('There was an error with your form. '
                                      'Please double check your information.'))
 
-    else:     
+    else:
         bag = request.session.get('bag', {})
         if not bag:
-            messages.error(request, "There's nothing in your bag at the moment")
+            messages.error(request, "There's nothing in "
+                                    "your bag at the moment")
             return redirect(reverse('products'))
-        
+
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
@@ -117,8 +117,8 @@ def checkout(request):
         intent = stripe.PaymentIntent.create(
                 amount=stripe_total,
                 currency=settings.STRIPE_CURRENCY,)
-        
-         # Attempt to prefill the form with any info
+
+        # Attempt to prefill the form with any info
         # the user maintains in their profile
         if request.user.is_authenticated:
             try:
@@ -138,7 +138,7 @@ def checkout(request):
                 order_form = OrderForm()
         else:
             order_form = OrderForm()
-        
+
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
                         Did you forget to set it in your environment')
@@ -178,7 +178,7 @@ def checkout_success(request, order_number):
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
-  
+
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
