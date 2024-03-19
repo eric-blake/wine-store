@@ -90,7 +90,7 @@ def checkout(request):
                     return redirect(reverse('view_bag'))
                 
             # Add discount to order
-            if discount: 
+            if discount:
                 coupon_discount = (order.order_total * discount)/100
                 order.coupon_discount  = coupon_discount 
                 order.update_total()
@@ -179,8 +179,6 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
   
-
-
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')

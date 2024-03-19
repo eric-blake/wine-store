@@ -54,18 +54,16 @@ class Order(models.Model):
         accounting for delivery costs and coupon discount.
         """
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        if self.coupon_discount  > 0:
+            self.order_total -= self.coupon_discount 
 
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
             self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
         else:
             self.delivery_cost = 0
-            
-        # Coupon 
-        if self.coupon_discount  > 0:
-            self.order_total -= self.coupon_discount 
         self.grand_total = self.order_total + Decimal(self.delivery_cost)
         self.save()
-
+      
 
     def save(self, *args, **kwargs):
         """
@@ -75,6 +73,10 @@ class Order(models.Model):
         if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
+
+
+    def __str__(self):
+        return self.order_number
 
 
 class OrderLineItem(models.Model):

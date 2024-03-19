@@ -6,7 +6,9 @@ from coupons.models import Coupon
 from coupons.forms import CouponForm
 
 def bag_contents(request):
-
+    """
+     Handles the shopping cart contents
+    """
     bag_items = []
     total = 0
     product_count = 0

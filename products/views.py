@@ -11,7 +11,9 @@ from profiles.models import UserProfile
 
 
 def all_products(request):
-    """ A view to show all products"""
+    """
+    A view to show all products
+    """
 
     products = Product.objects.all().order_by('-created')
     
@@ -110,7 +112,9 @@ def all_products(request):
 
   
 def product_detail(request, product_id):
-    """ A view to show individual product details """
+    """
+    A view to show individual product details 
+    """
 
     favourites = False
     user_review = None
@@ -175,7 +179,7 @@ def edit_product(request, product_id):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully updated product')
+            messages.info(request, 'Successfully updated product')
             return(redirect(reverse('product_detail', args=[product.id])))
         else:
             messages.error(request,
@@ -203,7 +207,7 @@ def delete_product(request, product_id):
     
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
-    messages.success(request, 'Successfully deleted product')
+    messages.info(request, 'Successfully deleted product')
     return redirect(reverse('products'))
 
 

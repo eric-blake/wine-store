@@ -80,7 +80,7 @@ class Closure(models.Model):
 
 
 class Style(models.Model):
-    """product style model"""
+    """Product style model"""
     class Meta:
         verbose_name_plural = 'Styles'
 
