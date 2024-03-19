@@ -65,7 +65,7 @@ def all_products(request):
             products = products.filter(country__icontains='US')
         if 'Chile' in request.GET:
             products = products.filter(country__icontains='CL')
-        if 'New Zeland' in request.GET:
+        if 'New_Zeland' in request.GET:
             products = products.filter(country__icontains='NZ')
 
         if '6' in request.GET:
