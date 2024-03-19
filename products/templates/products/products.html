@@ -110,9 +110,9 @@
                             {% csrf_token %}
                             <input type="hidden" name="quantity" value="1">
                             {% if product.in_stock %}
-                            <input type="submit" class="add-to-bag btn rounded-0 text-uppercase text-white" value="Add to Bag">
+                            <input type="submit" class="add-to-bag btn rounded-0 text-uppercase text-white" value="Add to Bag" aria-label="add to bag">
                             {% else %}
-                            <input type="text" class="out-of-Stock-btn mb-3 text-center" value="Out of Stock" disabled>
+                            <input type="text" class="out-of-Stock-btn mb-3 text-center"aria-label="out of stock" value="Out of Stock" disabled>
                             {% endif %} 
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </form>

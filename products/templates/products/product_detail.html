@@ -144,7 +144,6 @@
                                 value="Add to Bag">
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                        </div>
                     </form>
                 </div>
             </div>
@@ -170,28 +169,28 @@
     <h4 class="text-center">Customer Reviews</h4>
     {% if not reviews %}
     <div class="row d-flex justify-content-center">
-    <p class="text-center p-2">No reviews yet</p>
+        <p class="text-center p-2">No reviews yet</p>
     </div>
     {% endif %}
-
+    
     <!-- Reviews -->
     <div class="row mt-4">
-    {% for review in reviews %}
-            <div class="col-12 col-lg-8 offset-lg-2">
-                <h5 class="mt-0">{{review.user}}</h5>
-                <h6 class="mt-0 text-muted">{{review.created |date}}</h6>
-                     {{ review.review | linebreaks }} 
-                        <!-- Edit and delete reviews -->
-                        {% if request.user.userprofile == review.user or request.user.is_superuser %}
-                        <div class="edit_review">
-                            <a href="{% url 'edit_review' review.id %}" class="btn-sm mb-2 edit-btn">Edit</a>
-                            <a href="{% url 'delete_review' review.id %}" class="btn-sm mb-2 edit-btn">Delete</a>
-                        </div>
-                        {% endif %}
-                     <hr>
+        {% for review in reviews %}
+        <div class="col-12 col-lg-8 offset-lg-2">
+            <h5 class="mt-0">{{review.user}}</h5>
+            <h6 class="mt-0 text-muted">{{review.created |date}}</h6>
+            {{ review.review | linebreaks }}
+            <!-- Edit and delete reviews -->
+            {% if request.user.userprofile == review.user or request.user.is_superuser %}
+            <div class="edit_review">
+                <a href="{% url 'edit_review' review.id %}" class="btn-sm mb-2 edit-btn">Edit</a>
+                <a href="{% url 'delete_review' review.id %}" class="btn-sm mb-2 edit-btn">Delete</a>
             </div>
+            {% endif %}
+            <hr>
         </div>
-
+    </div>
+    
     </div>
     {% endfor %}
 </div>
