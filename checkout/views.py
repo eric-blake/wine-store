@@ -16,6 +16,7 @@ from django.views.decorators.http import require_POST
 
 @require_POST
 def cache_checkout_data(request):
+    """Handles the stripe payment intent"""
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -33,6 +34,7 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """Handles the checkout page"""
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -68,7 +70,7 @@ def checkout(request):
                         product.stock_qty -= item_qty
                         product.save()
                     else:
-                        messages.error(request, f'{product.title} out of stock')
+                        messages.error(request, f'{product.title} is out of stock')
 
                     order_line_item = OrderLineItem(
                             order=order,
@@ -152,6 +154,7 @@ def checkout(request):
 
 
 def checkout_success(request, order_number):
+    """Handles checkout succeess page"""
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
@@ -194,7 +197,3 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
-
-
-
-
