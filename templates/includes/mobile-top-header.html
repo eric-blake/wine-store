@@ -1,7 +1,8 @@
 <!-- Search on mobile -->
 <ul class="list-inline list-unstyled text-center text-md-right m-0">
 <li class="list-inline-item">
-    <a class="text-white nav-link d-block d-lg-none m-0 p-0" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a class="text-white nav-link d-block d-lg-none m-0 p-0" href="#" id="mobile-search" 
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="search our site">
         <div class="text-center">
             <div><i class="fas fa-search fa-lg"></i></div>
             <!-- <p class="my-0">Search</p> -->
@@ -12,7 +13,7 @@
             <div class="input-group w-100">
                 <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
                 <div class="input-group-append">
-                    <button class="form-control form-control btn btn-black border border-black rounded-0" type="submit">
+                    <button class="form-control form-control btn btn-black border border-black rounded-0" type="submit" aria-label="search our site">
                         <span class="icon">
                             <i class="fas fa-search"></i>
                         </span>
@@ -23,10 +24,10 @@
     </div>
 </li>
 
-
 <!-- Basket total on mobile -->
 <li class="list-inline-item">
-    <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-white{% endif %} nav-link d-block d-lg-none" href="{% url 'view_bag' %}">
+    <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-white{% endif %} nav-link d-block d-lg-none" 
+     href="{% url 'view_bag' %}" aria-label="total in shopping bag">
         <div class="text-center">
             <div><i class="fas fa-shopping-bag fa-lg"></i></div>
             <!-- <p class="my-0">
