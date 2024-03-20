@@ -113,7 +113,7 @@ I used Github Issues to record the following user stories:
 19.	As a Site User I can easily sort products by price, date and alphabetically so that I can find products that interest me
 20.	As a Site User I can complete the checkout step so that I can purchase the products added to my bag
 21.	As a Site User I can conveniently pay for my order so that I can complete the transaction quickly
-22.	As a Site USer I can sign up for newsletters on the website so that I can keep update with the latest news and offers
+22.	As a Site User I can sign up for newsletters on the website so that I can keep update with the latest news and offers
 23.	As a Site User I can easily find contact details and social media links so that I can contact the shop
 24.	As a Site User I can easily find contact details and social media links so that I can contact the shop
 25.	As a Site User I can see a custom error message so that I know why I cant access a page
@@ -125,26 +125,26 @@ I used Github Issues to record the following user stories:
 All User Stories include:
 * Acceptance Criteria
 * Tasks
-* Labels (MoSCoW Priotarization)
+* Labels (MoSCoW Prioritization)
 
 
 ### Structure & Logical Flow
 
 The database model diagram was designed using Lucid Charts
-![Screenshot of flowchart](\documentation\images\features\ERD.PNG)
+![Screenshot of flowchart](/documentation/images/features/ERD.PNG)
 
 **Product Model**
 The main model that contains all the fields needed for the products. This model is based on the "Boutique Ado" walkthrough project. Some adjustments and additions were made to fit the needs of my project. 
-  Colour,Closure,Style and Grape were added.
+  Colour, Closure, Style and Grape were added.
 
 **User Model**
-This is the Django Allauth standard user model. It is connceted to the userprofile model with a one to one relationship.
+This is the Django Allauth standard user model. It is connected to the userprofile model with a one to one relationship.
 
 **UserProfile Model**
 This is a custom model to provide the user with a place to save delivery information and a record of their order history. It is connceted to the user model with a one to one relationship.
 
 **Favourites**
-This model stores products to an authenticated users favourites list. It is connected to the user and producd tables with a ForeginKey.
+This model stores products to an authenticated users favourites list. It is connected to the user and product tables with a ForeginKey.
 
 **Reviews**
 This stores an authenticated users product reviews. It is connected to the user and product tables with a ForeginKey.
@@ -156,7 +156,7 @@ This model allows admin to create discount codes to offer to customers.
 This model stores all the users order details. it is connected to the userprofile table with a ForeginKey.
 
 **Order Line Item**
-This is craeted for each line item in the order. It is connected to the order and product tables with a ForeignKey.
+This is created for each line item in the order. It is connected to the order and product tables with a ForeignKey.
 
 
 ### Wireframe
@@ -210,7 +210,7 @@ The products displayed on the home page are the eight most recently added produc
 
 **Newsletter**
 
-The users can sign up to a newsletter to recieve the most recent offers and discount codes. The form was integrated using MailChimp.
+The users can sign up to a newsletter to receive the most recent offers and discount codes. The form was integrated using MailChimp.
 
 ![newsletter](/documentation/images/features/newsletter.PNG)
 
@@ -305,8 +305,8 @@ The shopping bag page can be accessed from the nav menu.
 
 **Stock Levels**
 
-- Stock quantitities have been implemented into the product model. When a user adds an item or updates the quantity in the shopping bag, the add-to-bag function checks the quantity selected plus the quantity of that item in the bag and compares it to the stock levels of the product. The user cannot add to bag more items than there is in stock. 
-- In the event that 2 orders for the same items go through at the same time and there is insufficient stock to fulfill both orders, the admin can cancel the status of the order and contact the customer for a refund. 
+- Stock levels have been implemented into the product model. When a user adds an item or updates the quantity in the shopping bag, the add-to-bag function checks the quantity selected plus the quantity of that item in the bag and compares it to the stock levels of the product. The user cannot add to bag more items than there is in stock. 
+- In the event that 2 orders for the same items go through at the same time and there is insufficient stock to fulfil both orders, the admin can cancel the status of the order and contact the customer for a refund. 
 
 ![Stock error image](/documentation/images/features/stock-error.PNG)
 
@@ -333,12 +333,6 @@ The coupon code form is on the shopping bag page. When a user enters a valid cou
 
 ![Order summary page Image](/documentation/images/features/order-confirmation.PNG)
 
-
-**Order Confirmation Email**
-
-- On successful checkout, an order summary page is shown. This will include the discount if a coupon was used.
-
-![Order summary page Image](/documentation/images/features/order-confirmation.PNG)
 
 
 **Add products**
@@ -416,7 +410,7 @@ A Facebook Business Page was created. The main goal of this Facebook page would 
 * Framework used to build this project. Provides a built in admin panel and includes many helper template tags that make writing code quick and efficient.
 
 **Django-Allauth**
-* Used for User authenticaion (register, login and logout).
+* Used for User authentication (register, login and logout).
 
 **Django Crispy Forms**
 * Used to control rendering of Django forms.
@@ -452,7 +446,7 @@ A Facebook Business Page was created. The main goal of this Facebook page would 
 * The front end development framework used for styling along with custom CSS.
   
 **Pillow**
-* Pillow iwas used to add  image processing capabilities to the Python interpreter.
+* Pillow was used to add image processing capabilities to the Python interpreter.
 
 ### Programs
 - [W3C HTML Validator](https://validator.w3.org/) was used to check for errors in the HTML code.
@@ -461,7 +455,7 @@ A Facebook Business Page was created. The main goal of this Facebook page would 
 - [CI Python Linter](https://pep8ci.herokuapp.com/) was used to validate the Python code.
 - [Google Chrome Lighthouse](https://developer.chrome.com/docs/lighthouse/) was used during the testing of the website.
 - [AWS](https://aws.amazon.com/) was used to store media files.
-  - [Stripe](https://stripe.com/en-ie) was integrated to handle payment processing.
+- [Stripe](https://stripe.com/en-ie) was integrated to handle payment processing.
 
 ## Testing
 
@@ -470,7 +464,7 @@ Detailed testing of the site can be found at [TESTING.md](TESTING.md)
 Testing includes the following:
 
 * Validator testing
-* Responsivness & Browser Compability Testing
+* Responsiveness & Browser Compatibility Testing
 * Manual testing
 * Browser testing
 * Device testing
@@ -484,15 +478,6 @@ There are no known bugs in the current deployment of the site. A number of bugs 
 |[BUG: Fix issue with countries field filtering #25](https://github.com/eric-blake/wine-store/issues/25)| See github issues | Closed 
 |[BUG: BUG: Order total not updating when coupon is applied #33](https://github.com/eric-blake/wine-store/issues/33)| See github issues | Closed 
 |[BUG: Product count on products page #32](https://github.com/eric-blake/wine-store/issues/32)| See github issues | Closed 
-
-
-|    ![Filter by country not working #25  ](https://github.com/eric-blake/wine-store/issues/25)  |      Update query to use country code instead of country name e.g. for France use code "FR" instead of "France"  |   Fixed   |
-|   Order total not updating when coupon is applied  #33    | Add coupon_discount to order model, save discount to order in checkout view and Update total in Order model |   Fixed   |
-| The products count on the products page is only counting the products on the first page #32 |  Create product_count variable on all_products view, Add product_count to the context.  Replace product length with product_count on products.html |   Fixed   |
-|   Order form not prefilling delivery address from users profile  | Duplicate code in checkout view deleted |   Fixed   |
-|  |  |   Fixed   |
-|  |  |   Fixed   |
-|  |  |   Fixed   |
 
 
 ## Deployment and local development

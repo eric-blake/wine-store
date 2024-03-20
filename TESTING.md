@@ -12,6 +12,7 @@
     - [CSS](#css)
     - [JavaScript](#javascript)
     - [Python](#python)
+  - [Browser Compatibility](#browser-compatibility)
   - [Manual Testing](#manual-testing)
     - [Home page](#home-page)
     - [Products page](#products-page)
@@ -30,51 +31,67 @@
 ### HTML
 All HTML pages were run though the Validator: [W3C Validator](https://validator.w3.org/)
 
+The add-product and edit-product pages have one error. This will be fixed at a later date
+
 |Page|Validator|Result|
 | --- | --- | --- |
-| Home |![home](/documentation/images/testing/html/home.png) | PASS |
-| All Products |![all products](/documentation/images/testing/html/products.png) | PASS |
-| Product |![product](/documentation/images/testing/html/product.png) | PASS |
-| Favourites |![favourites](/documentation/images/testing/html/favourites.png) | PASS |
-| Add product |![home]() | PASS |
-| Edit product |![edit product]() | PASS |
-| Delete product |![delete product](/documentation/images/testing/html/delete-product.png) | PASS |
-| Edit review |![edit review](/documentation/images/testing/html/edit-review.png) | PASS |
-| My Profile |![profile](/documentation/images/testing/html/profile.png) | PASS |
-| Shopping Bag |![home]() | PASS |
-| Checkout |![checkout](/documentation/images/testing/html/checkout.png) | PASS |
-| Checkout success |![checkout success](/documentation/images/testing/html/checkout-success.png) | PASS |
+| Home |![home](/documentation/images/testing/html/home.PNG) | PASS |
+| All Products |![all products](/documentation/images/testing/html/products.PNG) | PASS |
+| Product |![product](/documentation/images/testing/html/product.PNG) | PASS |
+| Favourites |![favourites](/documentation/images/testing/html/favourites.PNG) | PASS |
+| Add product |![home](/documentation/images/testing/html/add-product.PNG) | One error |
+| Edit product |![edit product](/documentation/images/testing/html/add-product.PNG) | One error |
+| Delete product |![delete product](/documentation/images/testing/html/delete-product.PNG) | PASS |
+| Edit review |![edit review](/documentation/images/testing/html/edit-review.PNG) | PASS |
+| My Profile |![profile](/documentation/images/testing/html/profile.PNG) | PASS |
+| Shopping Bag |![home](/documentation/images/testing/html/shopping-bag.PNG) | PASS |
+| Checkout |![checkout](/documentation/images/testing/html/checkout.PNG) | PASS |
+| Checkout success |![checkout success](/documentation/images/testing/html/checkout-success.PNG) | PASS |
 
 
 ### Lighthouse
+
+The desktop results are safisfactory, however the mobile performance results need improvement. This will be completed at a later date.
+
+
 |Page|Validator|Result|
 | --- | --- | --- |
-| Home desktop |![home desktop](/documentation/images/testing/lighthouse/home-desktop.png) | PASS |
-| Home mobile |![home mobile](/documentation/images/testing/lighthouse/home-mobile.png) | PASS |
-| Products desktop |![products desktop](/documentation/images/testing/lighthouse/products-desktop.png) | PASS |
-| Products mobile |![products mobile](/documentation/images/testing/lighthouse/products-mobile.png) | PASS |
-| Product |![product desktop](/documentation/images/testing/lighthouse/product-desktop.png) | PASS |
-| Product |![product mobile](/documentation/images/testing/lighthouse/product-mobile.png) | PASS |
-| Add product |![product management desktop](/documentation/images/testing/lighthouse/product-management-desktop.png) | PASS |
-| Add product |![product management mobile](/documentation/images/testing/lighthouse/product-management-mobile.png) | PASS |
+| Home desktop |![home desktop](/documentation/images/testing/lighthouse/home-desktop.PNG) | PASS |
+| Home mobile |![home mobile](/documentation/images/testing/lighthouse/home-mobile.PNG) | Needs Improvement |
+| All Products desktop |![products desktop](/documentation/images/testing/lighthouse/products-desktop.PNG) | PASS |
+| All Products mobile |![products mobile](/documentation/images/testing/lighthouse/products-mobile.PNG) | Needs Improvement |
+| Product desktop|![product desktop](/documentation/images/testing/lighthouse/product-desktop.PNG) | PASS |
+| Product mobile |![product mobile](/documentation/images/testing/lighthouse/product-mobile.PNG) | Needs Improvement |
+| Favourites desktop |![Favourites desktop](/documentation/images/testing/lighthouse/favourites-desktop.PNG) | PASS |
+| Favourites mobile |![Favourites mobile](/documentation/images/testing/lighthouse/favourites-desktop.PNG) | PASS |
+| Add product desktop|![Add product desktop](/documentation/images/testing/lighthouse/add-product-desktop.PNG) | PASS |
+| Add product mobile|![Add product mobile](/documentation/images/testing/lighthouse/add-product-mobile.PNG) | Needs Improvement |
+| Edit product desktop|![edit product desktop](/documentation/images/testing/lighthouse/edit-product-desktop.PNG) | PASS |
+| Edit product mobile|![edit product mobile](/documentation/images/testing/lighthouse/edit-product-mobile.PNG) | Needs Improvement |
+| Shopping bag desktop|![shopping bag desktop](/documentation/images/testing/lighthouse/shopping-bag-desktop.PNG) | PASS |
+| Shopping bag mobile|![shopping bag desktop](/documentation/images/testing/lighthouse/shopping-bag-mobile.PNG) | Needs Improvement |
+| Checkout desktop|![checkout desktop](/documentation/images/testing/lighthouse/checkout-desktop.PNG) | PASS |
+| Checkout mobile|![checkout desktop](/documentation/images/testing/lighthouse/checkout-mobile.PNG) | Needs Improvement |
+| Checkout success desktop|![checkout success desktop](/documentation/images/testing/lighthouse/checkout-success-desktop.PNG) | PASS |
+| Checkout success mobile|![checkout  successdesktop](/documentation/images/testing/lighthouse/checkout-success-mobile.PNG) | Needs Improvement |
 
 
 ### CSS
  No errors were found when passing through the: [Jigsaw Validator](https://jigsaw.w3.org/css-validator/)
 |File|Validator|Result|
 | --- | --- | --- |
-| base.css |![base.css](/documentation/images/testing/css/base.png) | PASS |
-| profiles.css |![base.css](/documentation/images/testing/css/profiles.png) | PASS |
-| checkout.css |![base.css](/documentation/images/testing/css/checkout.png) | PASS |
+| base.css |![base.css](/documentation/images/testing/css/base.PNG) | PASS |
+| profiles.css |![base.css](/documentation/images/testing/css/profiles.PNG) | PASS |
+| checkout.css |![base.css](/documentation/images/testing/css/checkout.PNG) | PASS |
 
 
 ### JavaScript
 All Javascript files were run though the Validator: [Js Hint](https://jshint.com/) 
 |File|Validator|Result|
 | --- | --- | --- |
-| countryfields |![countryfield.js ](/documentation/images/testing/js/countryfields.png) | PASS |
-| quantity input script|![stripe.js ](/documentation/images/testing/js/quantity-input-script.png) | PASS |
-| stripe |![stripe.js ](/documentation/images/testing/js/stripe.png) | PASS |
+| countryfields |![countryfield.js ](/documentation/images/testing/js/countryfields.PNG) | PASS |
+| quantity input script|![stripe.js ](/documentation/images/testing/js/quantity-input-script.PNG) | PASS |
+| stripe |![stripe.js ](/documentation/images/testing/js/stripe.PNG) | PASS |
 
 
 ### Python
@@ -113,6 +130,18 @@ Only files with custom-written Python code have been verified with the [CI Pytho
 | profiles | views |![python](/documentation/images/testing/python/profiles-views.PNG) | PASS |
 | winestore | urls |![python](/documentation/images/testing/python/winestore-urls.PNG) | PASS |
 | winestore | custom-storages |![python](/documentation/images/testing/python/winstore-custom-storages.PNG) | PASS |
+
+
+## Browser Compatibility
+
+|Browser|Result|Pass/Fail|Notes|
+| --- | --- | --- | ---|
+| Google Chrome | All pages, load as expected. All features work as expected | PASS | --- |
+| Firefox | All pages, load as expected. All features work as expected | PASS | --- |
+| Edge | All pages, load as expected. All features work as expected | PASS | ---|
+| Safari | All pages, load as expected. All features work as expected | PASS | ---|
+
+
 
 ## Manual Testing
 
@@ -172,7 +201,7 @@ Only files with custom-written Python code have been verified with the [CI Pytho
 | Add to favourites button |  Click on the heart icon |    The page redirects to the login page   |  As expected    |     Pass      |
 | Add to bag button |  Click on the add to bag button |    When clicked the product is added to the shopping bag  |  As expected    |     Pass      |
 | Update quantity |  Click on the + and - buttons |    The quantity is incremented and decremented   |  As expected    |     Pass      |
-| Stock levels|  Select higher quantity than stock level and attenmp to add to bag |   When clicked error message is displayed not enough stock   |  As expected    |     Pass      |
+| Stock levels|  Select higher quantity than stock level and attempt to add to bag |   When clicked error message is displayed not enough stock   |  As expected    |     Pass      |
 
 
 
@@ -182,7 +211,7 @@ Only files with custom-written Python code have been verified with the [CI Pytho
 | Edit product |  Click on the edit button |    The page redirects to the edit product page, the product details can be updated and the changes saved   |  As expected    |     Pass      |
 | Delete product |  Click on the delete button |    The page redirects to the edit product page   |  As expected    |     Pass      |
 | Edit review |  Click on the edit button |    The page redirects to the edit review page, the product review can be updated and the changes saved   |  As expected    |     Pass      |
-|    Delete review |  Click on the delete button |    The review is deleted   |  As expected    |     Pass      |
+| Delete review |  Click on the delete button |    The review is deleted   |  As expected    |     Pass      |
 </details>
 
 <details>
@@ -195,9 +224,9 @@ Only files with custom-written Python code have been verified with the [CI Pytho
 | Shopping bag     |  Add product to bag     |    Product appears in shopping bag correctly   |  As expected    |     Pass      |
 | Update quantity |  Click on the + and - buttons |    The quantity is incremented and decremented   |  As expected    |     Pass      |
 | Remove product   |  Click on the remove button   |  Product is removed from the shopping bag   |  As expected    |     Pass      |
-| Add discount |  Add a valid dicount code   |  Docount is applied and grand total updated   |  As expected    |     Pass      |
-| Add discount  |   Add an invalid dicount code    |  Error message appears and grand total is unchanged   |  As expected    |     Pass      |
-| Remove discount  | Click on remove coupon    |  Discout is removed and grand total is updated   |  As expected    |     Pass      |
+| Add discount |  Add a valid discount code   |  Discount is applied and grand total updated   |  As expected    |     Pass      |
+| Add discount  |   Add an invalid discount code    |  Error message appears and grand total is unchanged   |  As expected    |     Pass      |
+| Remove discount  | Click on remove coupon    |  Discount is removed and grand total is updated   |  As expected    |     Pass      |
 
 </details>
 
@@ -228,7 +257,7 @@ Only files with custom-written Python code have been verified with the [CI Pytho
 ### My Profile Page 
 | Feature | Action| Expected Result | Actual Result | Pass/Fail |
 |---------|--------|--------|--------|-----------|
-| Profile |   Fill in the form and click update  |  Profile is updatd  |  As expected    |     Pass      |
+| Profile |   Fill in the form and click update  |  Profile is updated  |  As expected    |     Pass      |
 | Order history | Go to My profile   | A list of all previous orders is visible   |  As expected    |     Pass      |
 | Order history details    |  Click on the order number   |  The order details page is displayed   |  As expected    |     Pass      |
 </details>
