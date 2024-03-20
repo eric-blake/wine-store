@@ -2,12 +2,30 @@
 
 ## Table of contents
 
+<br>
+
+- [Wine Store Testing](#wine-store-testing)
+  - [Table of contents](#table-of-contents)
+  - [Validator Testing](#validator-testing)
+    - [HTML](#html)
+    - [Lighthouse](#lighthouse)
+    - [CSS](#css)
+    - [JavaScript](#javascript)
+    - [Python](#python)
   - [Manual Testing](#manual-testing)
-    - [Navbar and Footer (base.html)](#navbar-and-footer-basehtml)
+    - [Home page](#home-page)
+    - [Products page](#products-page)
+      - [Product Detail Page (User signed in)](#product-detail-page-user-signed-in)
+      - [Product Detail Page (User signed out)](#product-detail-page-user-signed-out)
+      - [Product Detail Page (Superuser)](#product-detail-page-superuser)
+    - [Shopping Bag](#shopping-bag)
+    - [Checkout (User signed in)](#checkout-user-signed-in)
+    - [Checkout (User signed out)](#checkout-user-signed-out)
+    - [My Profile Page](#my-profile-page)
+    - [Favourites Page](#favourites-page)
 
 
 ## Validator Testing
-### validate
 
 ### HTML
 All HTML pages were run though the Validator: [W3C Validator](https://validator.w3.org/)
@@ -18,15 +36,14 @@ All HTML pages were run though the Validator: [W3C Validator](https://validator.
 | All Products |![all products](/documentation/images/testing/html/products.png) | PASS |
 | Product |![product](/documentation/images/testing/html/product.png) | PASS |
 | Favourites |![favourites](/documentation/images/testing/html/favourites.png) | PASS |
-| Product Management |![home]() | PASS |
-| Edit product |![home]() | PASS |
-| Delete product |![home]() | PASS |
-| Edit review |![home]() | PASS |
-| Delete review |![home]() | PASS |
-| My Profile |![home]() | PASS |
+| Add product |![home]() | PASS |
+| Edit product |![edit product]() | PASS |
+| Delete product |![delete product](/documentation/images/testing/html/delete-product.png) | PASS |
+| Edit review |![edit review](/documentation/images/testing/html/edit-review.png) | PASS |
+| My Profile |![profile](/documentation/images/testing/html/profile.png) | PASS |
 | Shopping Bag |![home]() | PASS |
-| Checkout |![home]() | PASS |
-| Checkout success |![home]() | PASS |
+| Checkout |![checkout](/documentation/images/testing/html/checkout.png) | PASS |
+| Checkout success |![checkout success](/documentation/images/testing/html/checkout-success.png) | PASS |
 
 
 ### Lighthouse
@@ -38,16 +55,27 @@ All HTML pages were run though the Validator: [W3C Validator](https://validator.
 | Products mobile |![products mobile](/documentation/images/testing/lighthouse/products-mobile.png) | PASS |
 | Product |![product desktop](/documentation/images/testing/lighthouse/product-desktop.png) | PASS |
 | Product |![product mobile](/documentation/images/testing/lighthouse/product-mobile.png) | PASS |
-| Product management |![product management desktop](/documentation/images/testing/lighthouse/product-management-desktop.png) | PASS |
-| Product management |![product management mobile](/documentation/images/testing/lighthouse/product-management-mobile.png) | PASS |
+| Add product |![product management desktop](/documentation/images/testing/lighthouse/product-management-desktop.png) | PASS |
+| Add product |![product management mobile](/documentation/images/testing/lighthouse/product-management-mobile.png) | PASS |
 
 
 ### CSS
- No errors were found when passing through the: [Jigsaw Validator](https://jigsaw.w3.org/css-validator/validator)
- ![CSS validator image](/)
+ No errors were found when passing through the: [Jigsaw Validator](https://jigsaw.w3.org/css-validator/)
+|File|Validator|Result|
+| --- | --- | --- |
+| base.css |![base.css](/documentation/images/testing/css/base.png) | PASS |
+| profiles.css |![base.css](/documentation/images/testing/css/profiles.png) | PASS |
+| checkout.css |![base.css](/documentation/images/testing/css/checkout.png) | PASS |
+
 
 ### JavaScript
-The small JavaScript snippet in the base.html has been passed through [JSHint Validator](https://jshint.com/) without issue.
+All Javascript files were run though the Validator: [Js Hint](https://jshint.com/) 
+|File|Validator|Result|
+| --- | --- | --- |
+| countryfields |![countryfield.js ](/documentation/images/testing/js/countryfields.png) | PASS |
+| quantity input script|![stripe.js ](/documentation/images/testing/js/quantity-input-script.png) | PASS |
+| stripe |![stripe.js ](/documentation/images/testing/js/stripe.png) | PASS |
+
 
 ### Python
 Only files with custom-written Python code have been verified with the [CI Python Linter](https://pep8ci.herokuapp.com/).
@@ -91,7 +119,7 @@ Only files with custom-written Python code have been verified with the [CI Pytho
 <details>
   <summary>Click me</summary>
 
-### Home page (index.html & base.html)
+### Home page
 | Feature | Action| Expected Result | Actual Result | Pass/Fail |
 |---------|--------|--------|--------|-----------|
 | Logo      | Click on logo            | When user clicks on logo they should be redirected to home page   | User is redirected to the home page      |    Pass  |
@@ -117,7 +145,7 @@ Only files with custom-written Python code have been verified with the [CI Pytho
   <summary>Click me</summary>
 
 
-### Products page (products.html)
+### Products page
 | Feature | Action| Expected Result | Actual Result | Pass/Fail |
 |---------|--------|--------|--------|-----------|
 | Products per page on products page  |  Open products page and count products     |  There should be 8 products per page           |   There are 8 products per page     |      Pass     |
@@ -214,6 +242,3 @@ Only files with custom-written Python code have been verified with the [CI Pytho
 |---------|--------|--------|--------|-----------|
 | Favourites page   |  Go to my favourites page   |   List of favourite products are visible  |  As expected    |     Pass      |
 </details>
-
-<details>
-  <summary>Click me</summary>

@@ -1,12 +1,11 @@
 # Wine Store
 
-## Purpose of this site
+![Website responsiveness on multiple screen sizes](documentation/images/responsive)
 
 Wine Store is a B2C e-commerce application that allows users to purchase wines. The site was built using Python, Django, HTML, CSS, JavaScript, Amazon S3 and Stripe. 
 
 The site has some features available exclusively to registered users, including viewing their order history, saving items to a favourites and adding product reviews.
 
-### Screenshot of Wine store
 
 -By Eric Blake
 # [Live site](https://wine-store-ci-bbef57464b33.herokuapp.com/ "Live site")
@@ -15,8 +14,6 @@ The site has some features available exclusively to registered users, including 
 
 ## Table of contents
 - [Wine Store](#wine-store)
-  - [Purpose of this site](#purpose-of-this-site)
-    - [Screenshot of Wine store](#screenshot-of-wine-store)
 - [Live site](#live-site)
   - [Table of contents](#table-of-contents)
 - [UX](#ux)
@@ -380,7 +377,6 @@ The coupon code form is on the shopping bag page. When a user enters a valid cou
 * Send email to customers when their order changes status.
 * Coupon management on product management page for superusers/admin
 * Social media login.
-* FAQ page, About page, Terms and conditions and privacy staement.
 
 
 ## Search Engine Optimization SEO and Marketing
