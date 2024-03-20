@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name ="description" content="Welcome to the Wine Store">
     <meta name = "keywords" content ="wines, red wine, shop, gifts, white wine, rose, champagne">
-    <script src="https://kit.fontawesome.com/a2f0177c6e.js" crossorigin="anonymous"></script>
+    
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
@@ -80,7 +80,7 @@
                             <input class="form-control border rounded-0" type="text" name="q"
                                 placeholder="Search our site">
                             <div class="input-group-append">
-                                <button class="form-control btn border border-black rounded-0" id="search-btn" type="submit">
+                                <button class="form-control btn border border-black rounded-0" id="search-btn" type="submit" aria-label="search">
                                     <span class="icon">
                                         <i class="fas fa-search fa-md"></i>
                                     </span>
@@ -195,6 +195,10 @@
         $('.toast').toast('show');
     </script>
     {% endblock %}
+
+<!-- font awesome -->
+<script src="https://kit.fontawesome.com/a2f0177c6e.js" crossorigin="anonymous"></script>
+
 
 </body>
 
