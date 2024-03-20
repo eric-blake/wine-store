@@ -29,6 +29,7 @@ The site has some features available exclusively to registered users, including 
     - [Wireframe](#wireframe)
     - [Colour Scheme](#colour-scheme)
     - [Fonts](#fonts)
+    - [Images](#images)
   - [Features](#features)
     - [Existing Features](#existing-features)
     - [Home Page](#home-page)
@@ -46,6 +47,8 @@ The site has some features available exclusively to registered users, including 
   - [Deployment and local development](#deployment-and-local-development)
     - [Deployment](#deployment)
     - [AWS setup](#aws-setup)
+    - [Stripe setup](#stripe-setup)
+    - [Deploy to Heroku](#deploy-to-heroku)
     - [Cloning the repository](#cloning-the-repository)
     - [Forking the Repository](#forking-the-repository)
   - [Credits](#credits)
@@ -173,10 +176,13 @@ Product Detail page | ![Product details page image](/documentation/images/wirefr
 * The main colour used for the banner and buttons is #91033c.
 * The background colour in the header and footer is #303C42.
 
-
 ### Fonts
-In addition to Bootstrap 4 built in font family the below two fonts were used throughout the application
+In addition to Bootstrap 4 built in font family the below two fonts were used throughout the application.
 * Lato and Karla: These are sans-serif fonts that are part of the Google font collection. They are professional and very readable fonts.
+
+### Images
+Note: The product images are for illustrative purposes only, they do not match the products title and description.
+
 
 ## Features
 
@@ -450,13 +456,16 @@ A Facebook Business Page was created. The main goal of this Facebook page would 
 * The front end development framework used for styling along with custom CSS.
   
 **Pillow**
+* Pillow iwas used to add  image processing capabilities to the Python interpreter.
 
 ### Programs
 - [W3C HTML Validator](https://validator.w3.org/) was used to check for errors in the HTML code.
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to check for errors in the CSS code
 - [Js Hint](https://jshint.com/) was used to validate the JavaScript code.
 - [CI Python Linter](https://pep8ci.herokuapp.com/) was used to validate the Python code.
-
+- [Google Chrome Lighthouse](https://developer.chrome.com/docs/lighthouse/) was used during the testing of the website.
+- [AWS](https://aws.amazon.com/) was used to store media files.
+  - [Stripe](https://stripe.com/en-ie) was integrated to handle payment processing.
 
 ## Testing
 
@@ -629,6 +638,18 @@ The following steps were taken to deploy this website to Heroku
     - Take note of the Access key ID and Secret access key as these will be needed to connect to the S3 bucket.
     - To save a copy of the credentials click Download .csv
 
+### Stripe setup
+- Log in to [Stripe](https://stripe.com/en-ie)
+- Navigate to developers section
+- Go to API keys tab and copy the values of PUBLIC_KEY and SECRET_KEY and add them to your env.py file, and to Heroku Config Vars.
+- Go to the Webhooks page and click on add endpoint.
+- This section requires a link to the deployed application. The link should look like this https://your_website.herokuapp.com/checkout/wh/ 
+- Choose all events the webhook should receive and add endpoint.
+- When the application is deployed, run a test transaction to ensure the webhooks are working. The events log be checked in the webhooks page.
+
+### Deploy to Heroku
+- In Heroku, navigate to the deployment tab and deploy the branch manually - watch the build logs for any errors.
+- Heroku will now build the app.  Once it has completed the build process you will see a 'Your App Was Successfully Deployed' message and a link to the app to visit the live site.
 
 ### Cloning the repository
 
