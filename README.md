@@ -1,6 +1,11 @@
 # Wine Store
 
-![Website responsiveness on multiple screen sizes](documentation/images/responsive)
+
+**Screenshot of Wine Store**
+
+| Desktop | Mobile | 
+|---------|--------
+| ![Desktop](/documentation/images/features/desktop-screenshot.PNG)   |![Mobile](/documentation/images/features/mobile-screenshot.PNG) 
 
 Wine Store is a B2C e-commerce application that allows users to purchase wines. The site was built using Python, Django, HTML, CSS, JavaScript, Amazon S3 and Stripe. 
 
@@ -387,7 +392,7 @@ This website follows a Business to Customer model - it sells wine products direc
 ### Marketing
 The website has an embedded [Mailchimp](https://mailchimp.com/?currency=EUR) newsletter in the footer. This section facilitates user engagement and promotes the e-commerce store through effective email marketing.
 
-![Newsletter](documentation\images\features\newsletter.PNG)
+![Newsletter](/documentation/images/features/newsletter.PNG)
 
 
 A Facebook Business Page was created. The main goal of this Facebook page would be to showcase new deals on products, give coupon code discounts to followers, and have targeted ads for different times of the year - "Christmas Sale", "Valentines Specials" etc.
